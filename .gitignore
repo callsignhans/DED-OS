@@ -1,0 +1,10 @@
+# Сборка CMake
+cmake-build-*/
+.DS_Store
+
+# Настройки среды CLion / JetBrains
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries/
+.idea/shelf/
