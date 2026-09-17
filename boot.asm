@@ -12,9 +12,9 @@ start:
 
 driver_read:
 	    push bx         ;
-        pop cx          ;
+        mov cx, 1          ;
         mov dh, 0       ;
-        mov si, 0x1FE0  ;
+        mov si, 0x7C0  ;
 .loop:
         add si, 0x20
         inc cl

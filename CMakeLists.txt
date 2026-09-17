@@ -43,27 +43,8 @@ foreach(ASM_FILE ${KERNEL_ASM_SRCS})
     )
     list(APPEND KERNEL_ASM_OBJS ${OBJ_FILE})
 endforeach()
-#[[
 # Собираем Си-файлы ядра и подкидываем к ним наши скомпилированные elf32 объекты
-add_executable(kernel_elf kernel.c source/floppy_driver.c
-        source/handler_interupt.c
-        source/intel8259A.c
-        source/kernel_allocator.c
-        source/loger.c
-        source/page_allocator.c
-        source/page_translator.c
-        source/printf.c
-        source/process.c
-        source/stack_chk_fail.c
-        source/tramplins.c
-        source/vga_driver.c
-        ${KERNEL_ASM_OBJS}
-        source/intel8042.c
-        source/assert.c
-        source/drivers/ps2_keyboard.c
-        source/headers/ps2_keyboard.h
-        source/drivers/ps2_mouse.c
-        source/headers/ps2_mouse.h)
+add_executable(kernel_elf kernel.c sourse/stack_chk_fail.c)
 
 # Настройки линковки 32-битного ядра с использованием скрипта компоновщика
 target_link_options(kernel_elf PRIVATE
@@ -80,12 +61,11 @@ target_include_directories(kernel_elf PRIVATE source/headers)
 set(KERNEL_BIN ${CMAKE_CURRENT_BINARY_DIR}/Binary/kernel.bin)
 add_custom_command(
         OUTPUT ${KERNEL_BIN}
-        COMMAND ${CMAKE_OBJCOPY} -O Binary $<TARGET_FILE:kernel_elf> ${KERNEL_BIN}
+        COMMAND ${CMAKE_OBJCOPY} -O binary $<TARGET_FILE:kernel_elf> ${KERNEL_BIN}
         DEPENDS kernel_elf
         COMMENT "Извлечение бинарного кода ядра (objcopy)..."
 )
 add_custom_target(kernel_bin DEPENDS ${KERNEL_BIN})
-]]
 
 # --- 4. Создание финального образа дискеты 1.44МБ (boot.img) ---
 set(IMAGE_FILE ${CMAKE_CURRENT_BINARY_DIR}/Binary/boot.img)
@@ -96,7 +76,7 @@ add_custom_command(
         COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/Binary
         COMMAND dd if=/dev/zero of=${IMAGE_FILE} bs=1024 count=1440 2>/dev/null
         COMMAND dd if=${BOOTLOADER_BIN} of=${IMAGE_FILE} conv=notrunc 2>/dev/null
-        #COMMAND dd if=${KERNEL_BIN} of=${IMAGE_FILE} conv=notrunc seek=1 2>/dev/null
+        COMMAND dd if=${KERNEL_BIN} of=${IMAGE_FILE} conv=notrunc seek=1 2>/dev/null
 
         # КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ: привязываемся к путям файлов, а не к таргетам-пустышкам
         DEPENDS ${BOOTLOADER_BIN} ${KERNEL_BIN}
