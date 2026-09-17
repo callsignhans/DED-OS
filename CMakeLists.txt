@@ -12,7 +12,7 @@ set(CMAKE_C_FLAGS "-m32 -ffreestanding -fno-pie -mno-sse -mno-sse2 -mno-sse3 -mn
 set(CMAKE_BUILD_TYPE Debug)
 
 # --- 2. Сборка Загрузчика (boot.bin) ---
-set(BOOTLOADER_BIN ${CMAKE_CURRENT_BINARY_DIR}/binary/boot.bin)
+set(BOOTLOADER_BIN ${CMAKE_CURRENT_BINARY_DIR}/Binary/boot.bin)
 
 add_custom_command(
         OUTPUT ${BOOTLOADER_BIN}
@@ -77,10 +77,10 @@ target_link_options(kernel_elf PRIVATE
 target_include_directories(kernel_elf PRIVATE source/headers)
 
 # Извлекаем плоский бинарник ядра из ELF
-set(KERNEL_BIN ${CMAKE_CURRENT_BINARY_DIR}/binary/kernel.bin)
+set(KERNEL_BIN ${CMAKE_CURRENT_BINARY_DIR}/Binary/kernel.bin)
 add_custom_command(
         OUTPUT ${KERNEL_BIN}
-        COMMAND ${CMAKE_OBJCOPY} -O binary $<TARGET_FILE:kernel_elf> ${KERNEL_BIN}
+        COMMAND ${CMAKE_OBJCOPY} -O Binary $<TARGET_FILE:kernel_elf> ${KERNEL_BIN}
         DEPENDS kernel_elf
         COMMENT "Извлечение бинарного кода ядра (objcopy)..."
 )
@@ -88,12 +88,12 @@ add_custom_target(kernel_bin DEPENDS ${KERNEL_BIN})
 ]]
 
 # --- 4. Создание финального образа дискеты 1.44МБ (boot.img) ---
-set(IMAGE_FILE ${CMAKE_CURRENT_BINARY_DIR}/binary/boot.img)
+set(IMAGE_FILE ${CMAKE_CURRENT_BINARY_DIR}/Binary/boot.img)
 
 add_custom_command(
         OUTPUT ${IMAGE_FILE}
-        # Гарантируем, что папка binary существует перед записью dd
-        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/binary
+        # Гарантируем, что папка Binary существует перед записью dd
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/Binary
         COMMAND dd if=/dev/zero of=${IMAGE_FILE} bs=1024 count=1440 2>/dev/null
         COMMAND dd if=${BOOTLOADER_BIN} of=${IMAGE_FILE} conv=notrunc 2>/dev/null
         #COMMAND dd if=${KERNEL_BIN} of=${IMAGE_FILE} conv=notrunc seek=1 2>/dev/null
