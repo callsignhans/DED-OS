@@ -1,3 +1,4 @@
 void kernel_entry() {
-    const char test[] = {"Hello World!"};
+    char* test = (char*)(0xB8000);
+    *test = ' ';
 }
