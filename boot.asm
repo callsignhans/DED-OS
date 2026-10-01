@@ -2,19 +2,17 @@
 
 start:
 	cli                 ; Отключаем прерывания
-	xor bx, bx          ; Зануляем bx, запись для записи в регистр
-	mov ss, bx          ; Устанавливаем базу стека
+	xor cx, cx          ; Зануляем bx, запись для записи в регистр
+	mov ss, cx          ; Устанавливаем базу стека
 	mov sp, 0x7C00      ; Устанавливаем верхнюю границу стека на ячейку в которую выгружается загрузчик
 	sti                 ; Включаем прерывания
 
-	mov ax, 0x7C0       ;
-	mov ds, ax          ;
+    inc cl
+	mov si, 0x7C0       ; Заполняем регистр ax, запись для записи в регистр
+	mov ds, si          ; Устанавливаем cегмент данных
 
 driver_read:
-	    push bx         ;
-        mov cx, 1          ;
-        mov dh, 0       ;
-        mov si, 0x7C0  ;
+        xor dh, dh       ;
 .loop:
         add si, 0x20
         inc cl
@@ -22,20 +20,15 @@ driver_read:
         jnz .post
         mov cl, 1
         add ch, dh
-        xor dh, 1
+        xor dh, cl
 .post:      
         mov es, si
-        mov di, 4
 .return:
         mov ax, 0x0201
         int 0x13
-        jc .error
+        jc .return
         cmp si, 0x7FE0
         jnz .loop
-        jmp .end
-.error:
-        sub di, 1   ;
-        jnz .return
 .end:
         jmp .end
 
