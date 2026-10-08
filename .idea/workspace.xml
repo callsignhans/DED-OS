@@ -5,6 +5,8 @@
   </component>
   <component name="BackendCodeEditorMiscSettings">
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
   </component>
   <component name="CMakePresetLoader">{
   &quot;useNewFormat&quot;: true
@@ -29,10 +31,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6d0d52f-3d53-48a3-942e-8be7afb9e710" name="Changes" comment="">
+    <list default="true" id="a6d0d52f-3d53-48a3-942e-8be7afb9e710" name="Changes" comment="last commit for one task">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boot.asm" beforeDir="false" afterPath="$PROJECT_DIR$/boot.asm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +45,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;callsignhans&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:callsignhans/DED-OS.git&quot;,
+    &quot;accountId&quot;: &quot;faafbccf-6d26-4f58-9ed9-9a973b9f8a14&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///home/adminguns/Documents/ProgramProjects/CLionProjects/DedOS/kernel.c" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="Hnus2s8R" />
@@ -64,34 +79,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "CMake Application.DED OS Debug.executor": "Run",
-    "CMake Application.DED OS Realese.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.RadMigrateCodeStyle": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "RunOnceActivity.west.config.association.type.startup.service": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "org.rust.first.attach.projects": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;CMake Application.DED OS Debug.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Application.DED OS Realese.executor&quot;: &quot;Run&quot;,
+    &quot;CidrDebugProfileConversion&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.west.config.association.type.startup.service&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="CMake Application.DED OS Realese">
-    <configuration name="Unnamed" type="CLion_Remote" version="1" remoteCommand="" symbolFile="$PROJECT_DIR$/../../FyrFyrProject/fyrfyros/cmake-build-debug/kernel_elf" sysroot="">
+    <configuration name="Unnamed" type="CLion_Remote" version="1" toolchain="" remoteCommand="" symbolFile="$PROJECT_DIR$/../../FyrFyrProject/fyrfyros/cmake-build-debug/kernel_elf" sysroot="">
       <debugger kind="GDB" isBundled="true" />
       <method v="2">
         <option name="RunConfigurationTask" enabled="true" run_configuration_name="DED OS Debug" run_configuration_type="CMakeRunConfiguration" />
@@ -133,6 +151,18 @@
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="/usr/bin" />
   </component>
+  <component name="SelectedDebugProfileService"><![CDATA[{
+  "profileIdByStamp": [
+    {
+      "first": {
+        "##RUN_CONFIGURATION##": "CMake Application.DED OS Realese",
+        "cmake": "CMakeBuildProfile:Debug"
+      },
+      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
+    }
+  ],
+  "modificationCount": 18
+}]]></component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a6d0d52f-3d53-48a3-942e-8be7afb9e710" name="Changes" comment="" />
@@ -150,7 +180,22 @@
       <workItem from="1789630917512" duration="37000" />
       <workItem from="1789631230034" duration="353000" />
       <workItem from="1789632608664" duration="108000" />
-      <workItem from="1789632732909" duration="1410000" />
+      <workItem from="1789632732909" duration="2527000" />
+      <workItem from="1789638325345" duration="13000" />
+      <workItem from="1789672703835" duration="3758000" />
+      <workItem from="1789784993870" duration="688000" />
+      <workItem from="1789787773836" duration="22000" />
+      <workItem from="1789792547456" duration="15000" />
+      <workItem from="1789794761077" duration="170000" />
+      <workItem from="1789795720489" duration="15000" />
+      <workItem from="1790672775228" duration="3000" />
+      <workItem from="1790673752821" duration="110000" />
+      <workItem from="1790673875756" duration="33000" />
+      <workItem from="1790673930795" duration="47000" />
+      <workItem from="1790674001055" duration="17000" />
+      <workItem from="1790674916457" duration="56000" />
+      <workItem from="1790674984018" duration="92000" />
+      <workItem from="1790675923655" duration="893000" />
     </task>
     <servers />
   </component>
@@ -162,5 +207,32 @@
     <isAutomaticFoundErrors value="true" />
     <isAutomaticReloadCMake value="true" />
     <isAutomaticBootstrapAfterUpdate value="false" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="last commit for one task" />
+    <option name="LAST_COMMIT_MESSAGE" value="last commit for one task" />
   </component>
 </project>

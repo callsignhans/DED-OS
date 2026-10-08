@@ -44,7 +44,7 @@ foreach(ASM_FILE ${KERNEL_ASM_SRCS})
     list(APPEND KERNEL_ASM_OBJS ${OBJ_FILE})
 endforeach()
 # Собираем Си-файлы ядра и подкидываем к ним наши скомпилированные elf32 объекты
-add_executable(kernel_elf kernel.c sourse/stack_chk_fail.c)
+add_executable(kernel_elf kernel.c source/stack_chk_fail.c)
 
 # Настройки линковки 32-битного ядра с использованием скрипта компоновщика
 target_link_options(kernel_elf PRIVATE
