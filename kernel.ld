@@ -1,16 +1,20 @@
-ENTRY(kernel_entry) /* Укажите имя вашей первой функции */
-
 SECTIONS {
-    /* Переносим ваш текущий адрес загрузки (0x20200) сюда */
-    . = 0x20200;
-
-    .text : {
-        *(.text.kernel_entry) /* Первой встанет функция с этим атрибутом */
-        *(.text)              /* Затем весь остальной код на Си */
-        *(.text.*)            /* И код из asm файлов (elf32) */
+    . = 0x7C00;
+    .boot : {
+        ./AsemblerObjects/boot.o (.text);
     }
-
-    .rodata : { *(.rodata*) }
-    .data   : { *(.data) }
-    .bss    : { *(.bss) }
+    .kernel : {
+        *(.text);
+        *(.rodata);
+        *(.rodata.*);
+        *(.data);
+        *(.bss);
+    }
+     /DISCARD/ : {
+            *(.eh_frame)
+            *(.note.gnu.property)
+            *(.comment)
+            *(.note.ABI-tag)
+            *(.note.gnu.build-id)
+     }
 }

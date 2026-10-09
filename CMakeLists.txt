@@ -1,88 +1,102 @@
 cmake_minimum_required(VERSION 3.10)
 project(MbrBootloader NONE)
 
-# Включаем ТОЛЬКО Си. Ассемблер будем контролировать вручную.
 enable_language(C)
-
-# Находим NASM в системе
 find_program(NASM_EXEC nasm REQUIRED)
 
 # --- 1. Конфигурация компилятора C для 32-bit Bare-Metal ---
 set(CMAKE_C_FLAGS "-m32 -ffreestanding -fno-pie -mno-sse -mno-sse2 -mno-sse3 -mno-ssse3 -mno-sse4.1 -mno-sse4.2 -mfpmath=387")
 set(CMAKE_BUILD_TYPE Debug)
 
-# --- 2. Сборка Загрузчика (boot.bin) ---
-set(BOOTLOADER_BIN ${CMAKE_CURRENT_BINARY_DIR}/Binary/boot.bin)
+# --- 2. Компиляция MBR загрузчика в объектный файл elf32 ---
+set(BOOTLOADER_OBJ ${CMAKE_CURRENT_BINARY_DIR}/AsemblerObjects/boot.o)
 
 add_custom_command(
-        OUTPUT ${BOOTLOADER_BIN}
-        COMMAND ${NASM_EXEC} -f bin ${CMAKE_CURRENT_SOURCE_DIR}/boot.asm -o ${BOOTLOADER_BIN}
+        OUTPUT ${BOOTLOADER_OBJ}
+        # ИСПРАВЛЕНИЕ: принудительно elf32, чтобы линковать вместе с Си-кодом
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/AsemblerObjects
+        COMMAND ${NASM_EXEC} -f elf32 ${CMAKE_CURRENT_SOURCE_DIR}/boot.asm -o ${BOOTLOADER_OBJ}
         DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/boot.asm
-        COMMENT "Компиляция MBR загрузчика boot.asm -> boot.bin..."
+        COMMENT "Компиляция MBR загрузчика boot.asm -> elf32 объект..."
 )
-add_custom_target(bootloader DEPENDS ${BOOTLOADER_BIN})
 
-#
+# --- 2. Компиляция MBR загрузчика в объектный файл elf32 ---
+add_library(boot_obj OBJECT boot.asm)
 
-# --- 3. Сборка Ядра (kernel.bin) ---
+# Установка флагов компиляции и ЯВНОЕ указание языка линковщика для таргета
+set_target_properties(boot_obj PROPERTIES
+        ASM_NASM_FLAGS "-f elf32"
+        LINKER_LANGUAGE ASM_NASM   # <- ЭТА СТРОКА РЕШАЕТ ПРОБЛЕМУ
+)
+
+add_custom_target(compile_boot DEPENDS ${BOOTLOADER_OBJ})
+
+# --- 3. Компиляция остальных .asm файлов ядра ---
 file(GLOB_RECURSE KERNEL_ASM_SRCS "source/asm/*.asm")
 
-# Вручную компилируем каждый .asm файл ядра в объектный файл elf32
 set(KERNEL_ASM_OBJS "")
 foreach(ASM_FILE ${KERNEL_ASM_SRCS})
-    # Получаем имя файла без расширения и пути
     get_filename_component(ASM_NAME ${ASM_FILE} NAME_WE)
-    set(OBJ_FILE "${CMAKE_CURRENT_BINARY_DIR}/asm-obj/${ASM_NAME}_asm.o")
+    set(OBJ_FILE "${CMAKE_CURRENT_BINARY_DIR}/AsemblerObjects/${ASM_NAME}_asm.o")
 
     add_custom_command(
             OUTPUT ${OBJ_FILE}
-            # Принудительно передаем -f elf32 и подключаем заголовочную папку
+            COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/AsemblerObjects
             COMMAND ${NASM_EXEC} -f elf32 -I"${CMAKE_CURRENT_SOURCE_DIR}/source/headers/" ${ASM_FILE} -o ${OBJ_FILE}
             DEPENDS ${ASM_FILE}
             COMMENT "Компиляция ассемблера ядра: ${ASM_NAME}.asm -> elf32"
     )
     list(APPEND KERNEL_ASM_OBJS ${OBJ_FILE})
 endforeach()
-# Собираем Си-файлы ядра и подкидываем к ним наши скомпилированные elf32 объекты
-add_executable(kernel_elf kernel.c sourse/stack_chk_fail.c)
 
-# Настройки линковки 32-битного ядра с использованием скрипта компоновщика
-target_link_options(kernel_elf PRIVATE
+# --- 4. Единая линковка (ld boot.o kernel.o ... -> os.elf) ---
+add_executable(os_elf
+        kernel.c
+        source/stack_chk_fail.c
+        ${KERNEL_ASM_OBJS}
+)
+
+add_dependencies(os_elf compile_boot)
+
+# Настройки линковщика (соответствуют флагу -T link.ld)
+target_link_options(os_elf PRIVATE
+        "-std=c99"
         "-m32"
-        "-Wl,-m,elf_i386"
-        "-static"
+        "-O2"
+        "-ffreestanding"
+        "-no-pie"
+        "-fno-pie"
+        "-mno-sse"
+        "-fno-stack-protector"
         "-nostdlib"
-        "-Wl,-T,${CMAKE_CURRENT_SOURCE_DIR}/kernel.ld"
+        "-Wl,-T,${CMAKE_CURRENT_SOURCE_DIR}/kernel.ld" # Ваш скрипт линковщика
 )
 
-target_include_directories(kernel_elf PRIVATE source/headers)
+target_include_directories(os_elf PRIVATE source/headers)
 
-# Извлекаем плоский бинарник ядра из ELF
-set(KERNEL_BIN ${CMAKE_CURRENT_BINARY_DIR}/Binary/kernel.bin)
+# --- 5. Извлечение финального плоского бинарника ОС (objcopy -> tmp_boot.img) ---
+set(OS_BIN ${CMAKE_CURRENT_BINARY_DIR}/Binary/tmp_boot.img)
+
 add_custom_command(
-        OUTPUT ${KERNEL_BIN}
-        COMMAND ${CMAKE_OBJCOPY} -O binary $<TARGET_FILE:kernel_elf> ${KERNEL_BIN}
-        DEPENDS kernel_elf
-        COMMENT "Извлечение бинарного кода ядра (objcopy)..."
+        OUTPUT ${OS_BIN}
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/Binary
+        COMMAND ${CMAKE_OBJCOPY} -O binary $<TARGET_FILE:os_elf> ${OS_BIN}
+        DEPENDS os_elf
+        COMMENT "Очистка бинарного файла ядра от метаинформации"
 )
-add_custom_target(kernel_bin DEPENDS ${KERNEL_BIN})
 
-# --- 4. Создание финального образа дискеты 1.44МБ (boot.img) ---
+# --- 6. Создание финального образа дискеты (boot.img) ---
 set(IMAGE_FILE ${CMAKE_CURRENT_BINARY_DIR}/Binary/boot.img)
-
 add_custom_command(
         OUTPUT ${IMAGE_FILE}
-        # Гарантируем, что папка Binary существует перед записью dd
         COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/Binary
+        # Создаем пустую дискету 1.44МБ
         COMMAND dd if=/dev/zero of=${IMAGE_FILE} bs=1024 count=1440 2>/dev/null
-        COMMAND dd if=${BOOTLOADER_BIN} of=${IMAGE_FILE} conv=notrunc 2>/dev/null
-        COMMAND dd if=${KERNEL_BIN} of=${IMAGE_FILE} conv=notrunc seek=1 2>/dev/null
-
-        # КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ: привязываемся к путям файлов, а не к таргетам-пустышкам
-        DEPENDS ${BOOTLOADER_BIN} ${KERNEL_BIN}
-
+        # Записываем наш единый бинарник (в котором уже есть и загрузчик, и ядро) в самое начало
+        COMMAND dd if=${OS_BIN} of=${IMAGE_FILE} conv=notrunc 2>/dev/null
+        DEPENDS ${OS_BIN}
         COMMENT "Сборка финального образа дискеты boot.img..."
 )
 
-# Этот таргет заставляет всю цепочку работать при сборке проекта
+# Точка входа для сборки проекта в CLion
 add_custom_target(image ALL DEPENDS ${IMAGE_FILE})

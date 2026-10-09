@@ -5,6 +5,8 @@
   </component>
   <component name="BackendCodeEditorMiscSettings">
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
   </component>
   <component name="CMakePresetLoader">{
   &quot;useNewFormat&quot;: true
@@ -17,9 +19,10 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="MbrBootloader" targetName="kernel_bin" />
       <config projectName="MbrBootloader" targetName="image" />
-      <config projectName="MbrBootloader" targetName="kernel_elf" />
+      <config projectName="MbrBootloader" targetName="os_elf" />
+      <config projectName="MbrBootloader" targetName="boot_obj" />
+      <config projectName="MbrBootloader" targetName="compile_boot" />
       <config projectName="MbrBootloader" targetName="bootloader" />
     </generated>
   </component>
@@ -29,10 +32,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6d0d52f-3d53-48a3-942e-8be7afb9e710" name="Changes" comment="">
+    <list default="true" id="a6d0d52f-3d53-48a3-942e-8be7afb9e710" name="Changes" comment="last commit for one task">
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/boot.asm" beforeDir="false" afterPath="$PROJECT_DIR$/boot.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel.ld" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.ld" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sourse/stack_chk_fail.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/stack_chk_fail.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +51,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;callsignhans&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:callsignhans/DED-OS.git&quot;,
+    &quot;accountId&quot;: &quot;faafbccf-6d26-4f58-9ed9-9a973b9f8a14&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="Hnus2s8R" />
@@ -66,9 +87,16 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "CMake Application.DED OS Debug.executor": "Run",
+    "CMake Application.DED OS Debug Auto.executor": "Debug",
+    "CMake Application.DED OS Debug.executor": "Debug",
     "CMake Application.DED OS Realese.executor": "Run",
+    "CMake Application.os_elf.executor": "Debug",
+    "CidrDebugProfileConversion": "true",
+    "Embedded GDB Server.image.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Remote Debug.Debug in QEMU.executor": "Debug",
+    "Remote Debug.Unnamed.executor": "Debug",
+    "Remote GDB Server.Debug Test.executor": "Debug",
     "RunOnceActivity.RadMigrateCodeStyle": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -80,24 +108,55 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "go-to-c",
+    "last_opened_file_path": "/home/adminguns/Documents/ProgramProjects/CLionProjects/DedOS/cmake-build-debug/os_elf",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "org.rust.first.attach.projects": "true",
+    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="CMake Application.DED OS Realese">
-    <configuration name="Unnamed" type="CLion_Remote" version="1" remoteCommand="" symbolFile="$PROJECT_DIR$/../../FyrFyrProject/fyrfyros/cmake-build-debug/kernel_elf" sysroot="">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Embedded GDB Server.image">
+    <configuration name="Debug in QEMU" type="CLion_Remote" activateToolWindowBeforeRun="false" version="1" toolchain="" remoteCommand="localhost:1234" symbolFile="$PROJECT_DIR$/cmake-build-debug/os_elf" sysroot="$PROJECT_DIR$">
+      <debugger kind="GDB" isBundled="true" />
+      <method v="2">
+        <option name="RunConfigurationTask" enabled="true" run_configuration_name="DED OS Debug Auto" run_configuration_type="CMakeRunConfiguration" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="CLion_Remote" version="1" toolchain="" remoteCommand="" symbolFile="$PROJECT_DIR$/../../FyrFyrProject/fyrfyros/cmake-build-debug/kernel_elf" sysroot="">
       <debugger kind="GDB" isBundled="true" />
       <method v="2">
         <option name="RunConfigurationTask" enabled="true" run_configuration_name="DED OS Debug" run_configuration_type="CMakeRunConfiguration" />
       </method>
     </configuration>
+    <configuration name="DED OS Debug Auto" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$/cmake-build-debug/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="image" CONFIG_NAME="Debug" RUN_PATH="/bin/qemu-system-i386">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DED OS Debug" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="image" CONFIG_NAME="Debug" RUN_PATH="/bin/qemu-system-i386">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DED OS Debug" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="image" CONFIG_NAME="Debug" RUN_PATH="/bin/qemu-system-i386">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DED OS Realese" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-cpu pentium2 -m 1g -drive format=raw,file=boot.img,if=floppy -monitor stdio -device VGA" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="image" CONFIG_NAME="Debug" RUN_PATH="/bin/qemu-system-i386">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -112,27 +171,110 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="kernel_bin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="kernel_bin" CONFIG_NAME="Debug">
+    <configuration name="boot_obj" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="boot_obj" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="kernel_elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="kernel_elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MbrBootloader" RUN_TARGET_NAME="kernel_elf">
+    <configuration name="compile_boot" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="compile_boot" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="os_elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="os_elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MbrBootloader" RUN_TARGET_NAME="os_elf">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="os_elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="os_elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MbrBootloader" RUN_TARGET_NAME="os_elf">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="image" type="com.jetbrains.cidr.embedded.customgdbserver.type" factoryName="com.jetbrains.cidr.embedded.customgdbserver.factory" nameIsGenerated="true" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="image" CONFIG_NAME="Debug" version="1" RUN_TARGET_PROJECT_NAME="MbrBootloader" RUN_TARGET_NAME="os_elf">
+      <custom-gdb-server version="1" gdb-connect="tcp:localhost:1234" executable="/bin/qemu-system-i386" warmup-ms="0" download-type="UPDATED_ONLY" reset-cmd="monitor reset" reset-type="AFTER_DOWNLOAD">
+        <debugger kind="GDB" isBundled="true" />
+      </custom-gdb-server>
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Debug Test" type="com.jetbrains.cidr.remote.gdbserver.type" factoryName="com.jetbrains.cidr.remote.gdbserver.factory" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="image" CONFIG_NAME="Debug" version="1" RUN_TARGET_PROJECT_NAME="MbrBootloader" RUN_TARGET_NAME="os_elf">
+      <custom-gdb-server version="1" gdb-connect="tcp:localhost:1234" executable="/bin/gemu-system-i386" warmup-ms="0" download-type="ALWAYS" uploadFile="/tmp/CLion/debug/os_elf" defaultGdbServerArgs=":1234 /tmp/CLion/debug/os_elf">
+        <debugger kind="GDB" isBundled="true" />
+      </custom-gdb-server>
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="CMake Application.DED OS Realese" />
       <item itemvalue="CMake Application.DED OS Debug" />
-      <item itemvalue="CMake Application.kernel_bin" />
-      <item itemvalue="CMake Application.kernel_elf" />
-      <item itemvalue="Remote Debug.Unnamed" />
+      <item itemvalue="CMake Application.DED OS Debug Auto" />
+      <item itemvalue="CMake Application.boot_obj" />
+      <item itemvalue="CMake Application.compile_boot" />
+      <item itemvalue="CMake Application.os_elf" />
+      <item itemvalue="Embedded GDB Server.image" />
+      <item itemvalue="Remote Debug.Debug in QEMU" />
+      <item itemvalue="Remote GDB Server.Debug Test" />
     </list>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="/usr/bin" />
   </component>
+  <component name="SelectedDebugProfileService"><![CDATA[{
+  "profileIdByStamp": [
+    {
+      "first": {
+        "##RUN_CONFIGURATION##": "CMake Application.DED OS Realese",
+        "cmake": "CMakeBuildProfile:Debug"
+      },
+      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
+    },
+    {
+      "first": {
+        "##RUN_CONFIGURATION##": "Remote Debug.Debug in QEMU"
+      },
+      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
+    },
+    {
+      "first": {
+        "##RUN_CONFIGURATION##": "Embedded GDB Server.image",
+        "cmake": "CMakeBuildProfile:Debug"
+      },
+      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
+    },
+    {
+      "first": {
+        "##RUN_CONFIGURATION##": "CMake Application.os_elf",
+        "cmake": "CMakeBuildProfile:Debug"
+      },
+      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
+    },
+    {
+      "first": {
+        "##RUN_CONFIGURATION##": "CMake Application.DED OS Debug",
+        "cmake": "CMakeBuildProfile:Debug"
+      },
+      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
+    },
+    {
+      "first": {
+        "##RUN_CONFIGURATION##": "CMake Application.DED OS Debug Auto",
+        "cmake": "CMakeBuildProfile:Debug"
+      },
+      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
+    },
+    {
+      "first": {
+        "##RUN_CONFIGURATION##": "Remote GDB Server.Debug Test",
+        "cmake": "CMakeBuildProfile:Debug"
+      },
+      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
+    }
+  ],
+  "modificationCount": 20
+}]]></component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a6d0d52f-3d53-48a3-942e-8be7afb9e710" name="Changes" comment="" />
@@ -162,5 +304,13 @@
     <isAutomaticFoundErrors value="true" />
     <isAutomaticReloadCMake value="true" />
     <isAutomaticBootstrapAfterUpdate value="false" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="last commit for one task" />
+    <option name="LAST_COMMIT_MESSAGE" value="last commit for one task" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
