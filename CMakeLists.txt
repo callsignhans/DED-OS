@@ -13,20 +13,17 @@ set(BOOTLOADER_OBJ ${CMAKE_CURRENT_BINARY_DIR}/AsemblerObjects/boot.o)
 
 add_custom_command(
         OUTPUT ${BOOTLOADER_OBJ}
-        # ИСПРАВЛЕНИЕ: принудительно elf32, чтобы линковать вместе с Си-кодом
         COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/AsemblerObjects
         COMMAND ${NASM_EXEC} -f elf32 ${CMAKE_CURRENT_SOURCE_DIR}/boot.asm -o ${BOOTLOADER_OBJ}
         DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/boot.asm
         COMMENT "Компиляция MBR загрузчика boot.asm -> elf32 объект..."
 )
 
-# --- 2. Компиляция MBR загрузчика в объектный файл elf32 ---
+# Создаём цель-пустышку, чтоб сформировать зависимость цели os_elf от существования boot.o
 add_library(boot_obj OBJECT boot.asm)
-
-# Установка флагов компиляции и ЯВНОЕ указание языка линковщика для таргета
 set_target_properties(boot_obj PROPERTIES
-        ASM_NASM_FLAGS "-f elf32"
-        LINKER_LANGUAGE ASM_NASM   # <- ЭТА СТРОКА РЕШАЕТ ПРОБЛЕМУ
+        #ASM_NASM_FLAGS "-f elf32"
+        LINKER_LANGUAGE ASM_NASM
 )
 
 add_custom_target(compile_boot DEPENDS ${BOOTLOADER_OBJ})
@@ -46,7 +43,9 @@ foreach(ASM_FILE ${KERNEL_ASM_SRCS})
             DEPENDS ${ASM_FILE}
             COMMENT "Компиляция ассемблера ядра: ${ASM_NAME}.asm -> elf32"
     )
+    set_source_files_properties(${OBJ_FILE} PROPERTIES GENERATED TRUE)
     list(APPEND KERNEL_ASM_OBJS ${OBJ_FILE})
+
 endforeach()
 
 # --- 4. Единая линковка (ld boot.o kernel.o ... -> os.elf) ---
@@ -82,21 +81,22 @@ add_custom_command(
         COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/Binary
         COMMAND ${CMAKE_OBJCOPY} -O binary $<TARGET_FILE:os_elf> ${OS_BIN}
         DEPENDS os_elf
-        COMMENT "Очистка бинарного файла ядра от метаинформации"
+        COMMENT "Извлечение плоского бинарного файла из os_elf"
 )
 
-# --- 6. Создание финального образа дискеты (boot.img) ---
+# --- 6. Создание финального образа дискеты (boot.img на Диске) ---
 set(IMAGE_FILE ${CMAKE_CURRENT_BINARY_DIR}/Binary/boot.img)
-add_custom_command(
-        OUTPUT ${IMAGE_FILE}
+
+# Заменяем add_custom_command на add_custom_target, чтобы CMake жестко контролировал этот этап
+add_custom_target(build_boot_image ALL
         COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/Binary
-        # Создаем пустую дискету 1.44МБ
         COMMAND dd if=/dev/zero of=${IMAGE_FILE} bs=1024 count=1440 2>/dev/null
-        # Записываем наш единый бинарник (в котором уже есть и загрузчик, и ядро) в самое начало
         COMMAND dd if=${OS_BIN} of=${IMAGE_FILE} conv=notrunc 2>/dev/null
+        COMMAND ${CMAKE_COMMAND} -E rm -f ${OS_BIN}
+
         DEPENDS ${OS_BIN}
-        COMMENT "Сборка финального образа дискеты boot.img..."
+        COMMENT "Сборка финального образа дискеты boot.img на диск..."
 )
 
-# Точка входа для сборки проекта в CLion
-add_custom_target(image ALL DEPENDS ${IMAGE_FILE})
+# Указываем, что образ дискеты жестко зависит от компиляции os_elf
+add_dependencies(build_boot_image os_elf)

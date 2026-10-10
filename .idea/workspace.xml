@@ -19,9 +19,9 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="MbrBootloader" targetName="image" />
       <config projectName="MbrBootloader" targetName="os_elf" />
       <config projectName="MbrBootloader" targetName="boot_obj" />
+      <config projectName="MbrBootloader" targetName="build_boot_image" />
       <config projectName="MbrBootloader" targetName="compile_boot" />
       <config projectName="MbrBootloader" targetName="bootloader" />
     </generated>
@@ -33,12 +33,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6d0d52f-3d53-48a3-942e-8be7afb9e710" name="Changes" comment="last commit for one task">
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/asm/function.asm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/boot.asm" beforeDir="false" afterPath="$PROJECT_DIR$/boot.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel.ld" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.ld" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sourse/stack_chk_fail.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/stack_chk_fail.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,50 +84,56 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "CMake Application.DED OS Debug Auto.executor": "Debug",
-    "CMake Application.DED OS Debug.executor": "Debug",
-    "CMake Application.DED OS Realese.executor": "Run",
-    "CMake Application.os_elf.executor": "Debug",
-    "CidrDebugProfileConversion": "true",
-    "Embedded GDB Server.image.executor": "Debug",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Remote Debug.Debug in QEMU.executor": "Debug",
-    "Remote Debug.Unnamed.executor": "Debug",
-    "Remote GDB Server.Debug Test.executor": "Debug",
-    "RunOnceActivity.RadMigrateCodeStyle": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "RunOnceActivity.west.config.association.type.startup.service": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "go-to-c",
-    "last_opened_file_path": "/home/adminguns/Documents/ProgramProjects/CLionProjects/DedOS/cmake-build-debug/os_elf",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.jshint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.jshint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "org.rust.first.attach.projects": "true",
-    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;CMake Application.DED OS Debug Auto.executor&quot;: &quot;Debug&quot;,
+    &quot;CMake Application.DED OS Debug.executor&quot;: &quot;Debug&quot;,
+    &quot;CMake Application.DED OS Realese.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Application.os_elf.executor&quot;: &quot;Debug&quot;,
+    &quot;CidrDebugProfileConversion&quot;: &quot;true&quot;,
+    &quot;Embedded GDB Server.build_boot_image.executor&quot;: &quot;Debug&quot;,
+    &quot;Embedded GDB Server.image.executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Remote Debug.Debug in QEMU.executor&quot;: &quot;Debug&quot;,
+    &quot;Remote Debug.Unnamed.executor&quot;: &quot;Debug&quot;,
+    &quot;Remote GDB Server.Debug Test.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.west.config.association.type.startup.service&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;go-to-c&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/adminguns/Documents/ProgramProjects/CLionProjects/DedOS/cmake-build-debug/os_elf&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/source" />
     </key>
   </component>
-  <component name="RunManager" selected="Embedded GDB Server.image">
+  <component name="RunManager" selected="Embedded GDB Server.build_boot_image">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Debug in QEMU" type="CLion_Remote" activateToolWindowBeforeRun="false" version="1" toolchain="" remoteCommand="localhost:1234" symbolFile="$PROJECT_DIR$/cmake-build-debug/os_elf" sysroot="$PROJECT_DIR$">
       <debugger kind="GDB" isBundled="true" />
       <method v="2">
@@ -166,12 +171,12 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="boot_obj" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="boot_obj" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="boot_obj" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="boot_obj" CONFIG_NAME="Debug">
+    <configuration name="build_boot_image" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="build_boot_image" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -191,8 +196,8 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="image" type="com.jetbrains.cidr.embedded.customgdbserver.type" factoryName="com.jetbrains.cidr.embedded.customgdbserver.factory" nameIsGenerated="true" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="image" CONFIG_NAME="Debug" version="1" RUN_TARGET_PROJECT_NAME="MbrBootloader" RUN_TARGET_NAME="os_elf">
-      <custom-gdb-server version="1" gdb-connect="tcp:localhost:1234" executable="/bin/qemu-system-i386" warmup-ms="0" download-type="UPDATED_ONLY" reset-cmd="monitor reset" reset-type="AFTER_DOWNLOAD">
+    <configuration name="build_boot_image" type="com.jetbrains.cidr.embedded.customgdbserver.type" factoryName="com.jetbrains.cidr.embedded.customgdbserver.factory" nameIsGenerated="true" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="build_boot_image" CONFIG_NAME="Debug" version="1" RUN_TARGET_PROJECT_NAME="MbrBootloader" RUN_TARGET_NAME="os_elf">
+      <custom-gdb-server version="1" gdb-connect="tcp:localhost:1234" executable="/bin/qemu-system-i386" warmup-ms="0" download-type="NONE" reset-cmd="monitor reset" reset-type="AFTER_DOWNLOAD">
         <debugger kind="GDB" isBundled="true" />
       </custom-gdb-server>
       <method v="2">
@@ -212,9 +217,11 @@
       <item itemvalue="CMake Application.DED OS Debug" />
       <item itemvalue="CMake Application.DED OS Debug Auto" />
       <item itemvalue="CMake Application.boot_obj" />
+      <item itemvalue="CMake Application.build_boot_image" />
       <item itemvalue="CMake Application.compile_boot" />
       <item itemvalue="CMake Application.os_elf" />
-      <item itemvalue="Embedded GDB Server.image" />
+      <item itemvalue="Embedded GDB Server.build_boot_image" />
+      <item itemvalue="Remote Debug.Unnamed" />
       <item itemvalue="Remote Debug.Debug in QEMU" />
       <item itemvalue="Remote GDB Server.Debug Test" />
     </list>
@@ -222,59 +229,31 @@
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="/usr/bin" />
   </component>
-  <component name="SelectedDebugProfileService"><![CDATA[{
-  "profileIdByStamp": [
+  <component name="SelectedDebugProfileService">{
+  &quot;profileIdByStamp&quot;: [
     {
-      "first": {
-        "##RUN_CONFIGURATION##": "CMake Application.DED OS Realese",
-        "cmake": "CMakeBuildProfile:Debug"
+      &quot;first&quot;: {
+        &quot;##RUN_CONFIGURATION##&quot;: &quot;Remote Debug.Debug in QEMU&quot;
       },
-      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
+      &quot;second&quot;: &quot;f2952a90-e2e5-42db-8f2e-c38fab591840&quot;
     },
     {
-      "first": {
-        "##RUN_CONFIGURATION##": "Remote Debug.Debug in QEMU"
+      &quot;first&quot;: {
+        &quot;##RUN_CONFIGURATION##&quot;: &quot;CMake Application.os_elf&quot;,
+        &quot;cmake&quot;: &quot;CMakeBuildProfile:Debug&quot;
       },
-      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
+      &quot;second&quot;: &quot;f2952a90-e2e5-42db-8f2e-c38fab591840&quot;
     },
     {
-      "first": {
-        "##RUN_CONFIGURATION##": "Embedded GDB Server.image",
-        "cmake": "CMakeBuildProfile:Debug"
+      &quot;first&quot;: {
+        &quot;##RUN_CONFIGURATION##&quot;: &quot;Embedded GDB Server.build_boot_image&quot;,
+        &quot;cmake&quot;: &quot;CMakeBuildProfile:Debug&quot;
       },
-      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
-    },
-    {
-      "first": {
-        "##RUN_CONFIGURATION##": "CMake Application.os_elf",
-        "cmake": "CMakeBuildProfile:Debug"
-      },
-      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
-    },
-    {
-      "first": {
-        "##RUN_CONFIGURATION##": "CMake Application.DED OS Debug",
-        "cmake": "CMakeBuildProfile:Debug"
-      },
-      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
-    },
-    {
-      "first": {
-        "##RUN_CONFIGURATION##": "CMake Application.DED OS Debug Auto",
-        "cmake": "CMakeBuildProfile:Debug"
-      },
-      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
-    },
-    {
-      "first": {
-        "##RUN_CONFIGURATION##": "Remote GDB Server.Debug Test",
-        "cmake": "CMakeBuildProfile:Debug"
-      },
-      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
+      &quot;second&quot;: &quot;f2952a90-e2e5-42db-8f2e-c38fab591840&quot;
     }
   ],
-  "modificationCount": 20
-}]]></component>
+  &quot;modificationCount&quot;: 22
+}</component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a6d0d52f-3d53-48a3-942e-8be7afb9e710" name="Changes" comment="" />
