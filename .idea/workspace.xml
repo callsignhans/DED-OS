@@ -33,9 +33,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6d0d52f-3d53-48a3-942e-8be7afb9e710" name="Changes" comment="last commit for one task">
-      <change afterPath="$PROJECT_DIR$/source/asm/function.asm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/boot.asm" beforeDir="false" afterPath="$PROJECT_DIR$/boot.asm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kernel.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.c" afterDir="false" />
     </list>
@@ -49,6 +47,11 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="go-to-c" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -61,10 +64,21 @@
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;git@github.com:callsignhans/DED-OS.git&quot;,
     &quot;accountId&quot;: &quot;faafbccf-6d26-4f58-9ed9-9a973b9f8a14&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;callsignhans&quot;,
+    &quot;repository&quot;: &quot;DED-OS&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/adminguns/Documents/ProgramProjects/CLionProjects/DedOS/kernel.c" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="Hnus2s8R" />
@@ -128,40 +142,13 @@
       <recent name="$PROJECT_DIR$/source" />
     </key>
   </component>
-  <component name="RunManager" selected="Embedded GDB Server.build_boot_image">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Debug in QEMU" type="CLion_Remote" activateToolWindowBeforeRun="false" version="1" toolchain="" remoteCommand="localhost:1234" symbolFile="$PROJECT_DIR$/cmake-build-debug/os_elf" sysroot="$PROJECT_DIR$">
-      <debugger kind="GDB" isBundled="true" />
-      <method v="2">
-        <option name="RunConfigurationTask" enabled="true" run_configuration_name="DED OS Debug Auto" run_configuration_type="CMakeRunConfiguration" />
-      </method>
-    </configuration>
-    <configuration name="Unnamed" type="CLion_Remote" version="1" toolchain="" remoteCommand="" symbolFile="$PROJECT_DIR$/../../FyrFyrProject/fyrfyros/cmake-build-debug/kernel_elf" sysroot="">
-      <debugger kind="GDB" isBundled="true" />
-      <method v="2">
-        <option name="RunConfigurationTask" enabled="true" run_configuration_name="DED OS Debug" run_configuration_type="CMakeRunConfiguration" />
-      </method>
-    </configuration>
-    <configuration name="DED OS Debug Auto" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$/cmake-build-debug/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="image" CONFIG_NAME="Debug" RUN_PATH="/bin/qemu-system-i386">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="CMake Application.DED OS Realese">
     <configuration name="DED OS Debug" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="image" CONFIG_NAME="Debug" RUN_PATH="/bin/qemu-system-i386">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DED OS Debug" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="image" CONFIG_NAME="Debug" RUN_PATH="/bin/qemu-system-i386">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DED OS Realese" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-cpu pentium2 -m 1g -drive format=raw,file=boot.img,if=floppy -monitor stdio -device VGA" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="image" CONFIG_NAME="Debug" RUN_PATH="/bin/qemu-system-i386">
+    <configuration name="DED OS Realese" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-cpu pentium2 -m 1g -drive format=raw,file=boot.img,if=floppy -monitor stdio -device VGA" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="build_boot_image" CONFIG_NAME="Debug" RUN_PATH="/bin/qemu-system-i386">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -196,7 +183,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="build_boot_image" type="com.jetbrains.cidr.embedded.customgdbserver.type" factoryName="com.jetbrains.cidr.embedded.customgdbserver.factory" nameIsGenerated="true" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="build_boot_image" CONFIG_NAME="Debug" version="1" RUN_TARGET_PROJECT_NAME="MbrBootloader" RUN_TARGET_NAME="os_elf">
+    <configuration name="Debug in QEMU" type="com.jetbrains.cidr.embedded.customgdbserver.type" factoryName="com.jetbrains.cidr.embedded.customgdbserver.factory" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="build_boot_image" CONFIG_NAME="Debug" version="1" RUN_TARGET_PROJECT_NAME="MbrBootloader" RUN_TARGET_NAME="os_elf">
       <custom-gdb-server version="1" gdb-connect="tcp:localhost:1234" executable="/bin/qemu-system-i386" warmup-ms="0" download-type="NONE" reset-cmd="monitor reset" reset-type="AFTER_DOWNLOAD">
         <debugger kind="GDB" isBundled="true" />
       </custom-gdb-server>
@@ -204,26 +191,14 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Debug Test" type="com.jetbrains.cidr.remote.gdbserver.type" factoryName="com.jetbrains.cidr.remote.gdbserver.factory" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="image" CONFIG_NAME="Debug" version="1" RUN_TARGET_PROJECT_NAME="MbrBootloader" RUN_TARGET_NAME="os_elf">
-      <custom-gdb-server version="1" gdb-connect="tcp:localhost:1234" executable="/bin/gemu-system-i386" warmup-ms="0" download-type="ALWAYS" uploadFile="/tmp/CLion/debug/os_elf" defaultGdbServerArgs=":1234 /tmp/CLion/debug/os_elf">
-        <debugger kind="GDB" isBundled="true" />
-      </custom-gdb-server>
-      <method v="2">
-        <option name="CLION.COMPOUND.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="CMake Application.DED OS Realese" />
       <item itemvalue="CMake Application.DED OS Debug" />
-      <item itemvalue="CMake Application.DED OS Debug Auto" />
+      <item itemvalue="CMake Application.DED OS Realese" />
       <item itemvalue="CMake Application.boot_obj" />
       <item itemvalue="CMake Application.build_boot_image" />
       <item itemvalue="CMake Application.compile_boot" />
       <item itemvalue="CMake Application.os_elf" />
-      <item itemvalue="Embedded GDB Server.build_boot_image" />
-      <item itemvalue="Remote Debug.Unnamed" />
-      <item itemvalue="Remote Debug.Debug in QEMU" />
-      <item itemvalue="Remote GDB Server.Debug Test" />
+      <item itemvalue="Embedded GDB Server.Debug in QEMU" />
     </list>
   </component>
   <component name="RustProjectSettings">
@@ -233,7 +208,8 @@
   &quot;profileIdByStamp&quot;: [
     {
       &quot;first&quot;: {
-        &quot;##RUN_CONFIGURATION##&quot;: &quot;Remote Debug.Debug in QEMU&quot;
+        &quot;##RUN_CONFIGURATION##&quot;: &quot;CMake Application.DED OS Realese&quot;,
+        &quot;cmake&quot;: &quot;CMakeBuildProfile:Debug&quot;
       },
       &quot;second&quot;: &quot;f2952a90-e2e5-42db-8f2e-c38fab591840&quot;
     },
@@ -246,13 +222,13 @@
     },
     {
       &quot;first&quot;: {
-        &quot;##RUN_CONFIGURATION##&quot;: &quot;Embedded GDB Server.build_boot_image&quot;,
+        &quot;##RUN_CONFIGURATION##&quot;: &quot;CMake Application.boot_obj&quot;,
         &quot;cmake&quot;: &quot;CMakeBuildProfile:Debug&quot;
       },
       &quot;second&quot;: &quot;f2952a90-e2e5-42db-8f2e-c38fab591840&quot;
     }
   ],
-  &quot;modificationCount&quot;: 22
+  &quot;modificationCount&quot;: 25
 }</component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -283,6 +259,17 @@
     <isAutomaticFoundErrors value="true" />
     <isAutomaticReloadCMake value="true" />
     <isAutomaticBootstrapAfterUpdate value="false" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="last commit for one task" />
