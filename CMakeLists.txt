@@ -5,7 +5,7 @@ enable_language(C)
 find_program(NASM_EXEC nasm REQUIRED)
 
 # --- 1. Конфигурация компилятора C для 32-bit Bare-Metal ---
-set(CMAKE_C_FLAGS "-m32 -ffreestanding -fno-pie -mno-sse -mno-sse2 -mno-sse3 -mno-ssse3 -mno-sse4.1 -mno-sse4.2 -mfpmath=387")
+set(CMAKE_C_FLAGS "-std=c99 -m32 -O2 -ffreestanding -fno-stack-protector -fno-pie -mno-sse -mno-sse2 -mno-sse3 -mno-ssse3 -mno-sse4.1 -mno-sse4.2 -mfpmath=387")
 set(CMAKE_BUILD_TYPE Debug)
 
 # --- 2. Компиляция MBR загрузчика в объектный файл elf32 ---
@@ -52,6 +52,10 @@ endforeach()
 add_executable(os_elf
         kernel.c
         source/stack_chk_fail.c
+        source/assert.c
+        source/kernel_allocator.c
+        source/printf.c
+        source/vga_driver.c
         ${KERNEL_ASM_OBJS}
 )
 

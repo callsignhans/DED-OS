@@ -34,8 +34,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a6d0d52f-3d53-48a3-942e-8be7afb9e710" name="Changes" comment="last commit for one task">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/boot.asm" beforeDir="false" afterPath="$PROJECT_DIR$/boot.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +44,11 @@
   </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/home/adminguns/Documents/ProgramProjects/CLionProjects/DedOS" value="3KoVIN97O61uWO1MslRTV0eutUC" />
+    </persistenceIdMap>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
@@ -78,7 +83,6 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/adminguns/Documents/ProgramProjects/CLionProjects/DedOS/kernel.c" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="Hnus2s8R" />
@@ -105,6 +109,7 @@
     &quot;CMake Application.DED OS Realese.executor&quot;: &quot;Run&quot;,
     &quot;CMake Application.os_elf.executor&quot;: &quot;Debug&quot;,
     &quot;CidrDebugProfileConversion&quot;: &quot;true&quot;,
+    &quot;Embedded GDB Server.Debug in QEMU.executor&quot;: &quot;Debug&quot;,
     &quot;Embedded GDB Server.build_boot_image.executor&quot;: &quot;Debug&quot;,
     &quot;Embedded GDB Server.image.executor&quot;: &quot;Debug&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
@@ -122,6 +127,7 @@
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;go-to-c&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/adminguns/Documents/ProgramProjects/CLionProjects/DedOS/cmake-build-debug/os_elf&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -142,7 +148,12 @@
       <recent name="$PROJECT_DIR$/source" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake Application.DED OS Realese">
+  <component name="RunManager" selected="Embedded GDB Server.Debug in QEMU">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DED OS Debug" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="image" CONFIG_NAME="Debug" RUN_PATH="/bin/qemu-system-i386">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
