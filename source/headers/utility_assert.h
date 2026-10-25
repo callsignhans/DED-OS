@@ -6,30 +6,31 @@
 #define MBRBOOTLOADER_ASSERT_H
 
 
-#include "kernel_allocator.h"
+#include "utility_allocator.h"
+#include "utility_va_list.h"
 
-    typedef struct assert {
+typedef struct utility_assert {
         int line;
         const char* name_function;
         const char* name_file;
         const char* condition;
         const char* massage;
-
+        va_list arguments;
     } assert;
 
-    extern void assert_interrupt(assert* text, ...);
+    extern void assert_interrupt(assert* text);
 
-    assert* create_assert(int line, const char* function,const char* file, const char* condition, const char* massage);
+    assert* create_assert(int line, const char* function,const char* file, const char* condition,
+        const char* massage, ...);
 
 #ifdef DEBUG_MODE
     #define ASSERT(condition, ...)                                                                          \
         if (!(condition)) {                                                                                 \
-            assert* result = create_assert(__LINE__, __FUNCTION__, __FILE_NAME__, #condition,               \
-                FIRST_ARG_HELPER(__VA_ARGS__));                                                             \
-            assert_interrupt(result, __VA_ARGS__);                                                          \
+            assert* result = create_assert(__LINE__, __FUNCTION__, __FILE_NAME__, #condition, __VA_ARGS__); \
+            assert_interrupt(result);                                                          \
         }
 #else
-    #define ASSERT(condition, massage)
+    #define ASSERT(condition, ...)
 #endif
 
 
@@ -37,11 +38,11 @@
     #define ASSERT_NOT_COND(...)                                                                            \
     {                                                                                                       \
         assert* result = create_assert(__LINE__, __FUNCTION__, __FILE_NAME__, "assert hasn't condition",    \
-            FIRST_ARG_HELPER(__VA_ARGS__));                                                                 \
-        assert_interrupt(result, __VA_ARGS__);                                                              \
+            __VA_ARGS__);                                                                 \
+        assert_interrupt(result);                                                                           \
     }
 #else
-    #define ASSERT_NOT_COND(massage)
+    #define ASSERT_NOT_COND(...)
 #endif
 
 #endif //MBRBOOTLOADER_ASSERT_H

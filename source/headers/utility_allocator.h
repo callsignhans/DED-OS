@@ -6,7 +6,7 @@
 #define FYRFYROS_KERNEL_ALLOCATOR_H
 
 #include "_flags.h"
-#include "macroses.h"
+#include "_macroses.h"
 
 #define KERNEL_SIZE_ADDRESS 4
 #define KERNEL_COUNT_ARENAS 8

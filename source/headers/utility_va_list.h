@@ -6,9 +6,9 @@
 #define FYRFYROS_VA_LIST_H
 
 #include "_flags.h"
-#include "macroses.h"
+#include "_macroses.h"
 
-typedef struct va_list {
+typedef struct utility_va_list {
     void* now_address;
 } va_list;
 

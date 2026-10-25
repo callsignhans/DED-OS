@@ -1,5 +1,6 @@
 SECTIONS {
     . = 0x7C00;
+    _kernel_start = .;
     .boot : {
         ./AsemblerObjects/boot.o (.text);
     }
@@ -10,6 +11,7 @@ SECTIONS {
         *(.data);
         *(.bss);
     }
+    _kernel_end = .;
      /DISCARD/ : {
             *(.eh_frame)
             *(.note.gnu.property)

@@ -6,7 +6,7 @@
 #define FYRFYROS_LOGER_H
 
 #include "_flags.h"
-#include "vga_driver.h"
+#include "driver_vga.h"
 
 void log_massage_cond(byte cond, char* comment_str, u32 hex, byte clear_mode);
 void log_warning_cond(byte cond,char* comment_str, u32 hex, byte clear_mode);

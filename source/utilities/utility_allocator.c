@@ -1,4 +1,4 @@
-#include "headers/kernel_allocator.h"
+#include "../headers/utility_allocator.h"
 
 void kernel_start_allocator() {
     kernel_init_allocator(&KERNEL_ALLOCATOR, KERNEL_COUNT_ARENAS - 1);

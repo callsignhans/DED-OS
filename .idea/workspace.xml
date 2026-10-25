@@ -19,23 +19,50 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="MbrBootloader" targetName="os_elf" />
       <config projectName="MbrBootloader" targetName="boot_obj" />
+      <config projectName="MbrBootloader" targetName="os_elf" />
       <config projectName="MbrBootloader" targetName="build_boot_image" />
       <config projectName="MbrBootloader" targetName="compile_boot" />
-      <config projectName="MbrBootloader" targetName="bootloader" />
     </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Release" ENABLED="true" CONFIG_NAME="Release" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6d0d52f-3d53-48a3-942e-8be7afb9e710" name="Changes" comment="last commit for one task">
+      <change afterPath="$PROJECT_DIR$/source/asm/assembler_function.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/asm/assembler_utility_asm_functions.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/drivers/driver_vga.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/headers/kernel_ipmlementation_interrupts.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/headers/utility_asm_fuctions.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/headers/utility_memory_operation.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/headers/utility_window_printf.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/kernel/kernel_implementation_interrupts.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/utilities/utility_bits_operation.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/utilities/utility_logger.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/utilities/utility_memory_operation.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/utilities/utility_printf.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boot.asm" beforeDir="false" afterPath="$PROJECT_DIR$/boot.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel.ld" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.ld" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/asm/function.asm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/assert.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities/utility_assert.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/headers/_flags.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/_flags.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/headers/assert.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/utility_assert.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/headers/kernel_allocator.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/utility_allocator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/headers/loger.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/utility_logger.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/headers/macroses.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/_macroses.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/headers/printf.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/utility_printf.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/headers/va_list.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/utility_va_list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/headers/vga_driver.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/driver_vga.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/kernel_allocator.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities/utility_allocator.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/printf.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities/utility_window_printf.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/stack_chk_fail.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/kernel/kernel_stack_chk_fail.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/vga_driver.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/kernel/kernel_window.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +77,23 @@
       <entry key="_/home/adminguns/Documents/ProgramProjects/CLionProjects/DedOS" value="3KoVIN97O61uWO1MslRTV0eutUC" />
     </persistenceIdMap>
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="EmbeddedSvdWindowState">
+    <option name="columnWidths">
+      <list>
+        <option value="237" />
+        <option value="102" />
+        <option value="1194" />
+      </list>
+    </option>
+    <option name="columnOrder">
+      <list>
+        <option value="Name" />
+        <option value="Value" />
+        <option value="Description" />
+      </list>
+    </option>
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Release" />
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -98,6 +141,9 @@
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3J7Xf6ynzE0jwhwheqMvHjD3Xz0" />
+  <component name="ProjectStatusUIService">{
+  &quot;uiKindId&quot;: &quot;Widget&quot;
+}</component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -129,7 +175,7 @@
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;go-to-c&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/adminguns/Documents/ProgramProjects/CLionProjects/DedOS/cmake-build-debug/os_elf&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/adminguns/Documents/ProgramProjects/FyrFyrProject/fyrfyros&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -139,7 +185,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
     &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CMakeSettings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -148,13 +194,13 @@
       <recent name="$PROJECT_DIR$/source" />
     </key>
   </component>
-  <component name="RunManager" selected="Embedded GDB Server.Debug in QEMU">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+  <component name="RunManager" selected="CMake Application.DED OS Realese">
+    <configuration name="DED OS Realese" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-cpu pentium2 -m 1g -drive format=raw,file=boot.img,if=floppy -monitor stdio -device VGA" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="build_boot_image" CONFIG_NAME="Debug" RUN_PATH="/bin/qemu-system-i386">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DED OS Debug" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="image" CONFIG_NAME="Debug" RUN_PATH="/bin/qemu-system-i386">
+    <configuration name="DED OS Realese" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-cpu pentium2 -m 1g -drive format=raw,file=boot.img,if=floppy -monitor stdio -device VGA" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="build_boot_image" CONFIG_NAME="Debug" RUN_PATH="/bin/qemu-system-i386">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -174,12 +220,22 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="build_boot_image" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="build_boot_image" CONFIG_NAME="Debug">
+    <configuration name="boot_obj" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="boot_obj" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="compile_boot" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="compile_boot" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="compile_boot" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="compile_boot" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="os_elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="os_elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MbrBootloader" RUN_TARGET_NAME="os_elf">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -202,13 +258,27 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Debug in QEMU" type="com.jetbrains.cidr.embedded.customgdbserver.type" factoryName="com.jetbrains.cidr.embedded.customgdbserver.factory" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="build_boot_image" CONFIG_NAME="Debug" version="1" RUN_TARGET_PROJECT_NAME="MbrBootloader" RUN_TARGET_NAME="os_elf">
+      <custom-gdb-server version="1" gdb-connect="tcp:localhost:1234" executable="/bin/qemu-system-i386" warmup-ms="0" download-type="NONE" reset-cmd="monitor reset" reset-type="AFTER_DOWNLOAD">
+        <debugger kind="GDB" isBundled="true" />
+      </custom-gdb-server>
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Debug in QEMU" type="com.jetbrains.cidr.embedded.customgdbserver.type" factoryName="com.jetbrains.cidr.embedded.customgdbserver.factory" PROGRAM_PARAMS="-cpu pentium2 -m 1g -fda boot.img -monitor stdio -device VGA -s -S" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="os_elf" CONFIG_NAME="Debug" version="1" RUN_TARGET_PROJECT_NAME="MbrBootloader" RUN_TARGET_NAME="os_elf">
+      <custom-gdb-server version="1" gdb-connect="tcp:localhost:1234" executable="/bin/qemu-system-i386" warmup-ms="0" download-type="NONE" reset-cmd="monitor reset" reset-type="AFTER_DOWNLOAD">
+        <debugger kind="GDB" isBundled="true" />
+      </custom-gdb-server>
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="CMake Application.DED OS Debug" />
-      <item itemvalue="CMake Application.DED OS Realese" />
       <item itemvalue="CMake Application.boot_obj" />
-      <item itemvalue="CMake Application.build_boot_image" />
       <item itemvalue="CMake Application.compile_boot" />
       <item itemvalue="CMake Application.os_elf" />
+      <item itemvalue="CMake Application.DED OS Realese" />
       <item itemvalue="Embedded GDB Server.Debug in QEMU" />
     </list>
   </component>
@@ -219,6 +289,13 @@
   &quot;profileIdByStamp&quot;: [
     {
       &quot;first&quot;: {
+        &quot;##RUN_CONFIGURATION##&quot;: &quot;Embedded GDB Server.Debug in QEMU&quot;,
+        &quot;cmake&quot;: &quot;CMakeBuildProfile:Release&quot;
+      },
+      &quot;second&quot;: &quot;f2952a90-e2e5-42db-8f2e-c38fab591840&quot;
+    },
+    {
+      &quot;first&quot;: {
         &quot;##RUN_CONFIGURATION##&quot;: &quot;CMake Application.DED OS Realese&quot;,
         &quot;cmake&quot;: &quot;CMakeBuildProfile:Debug&quot;
       },
@@ -226,20 +303,20 @@
     },
     {
       &quot;first&quot;: {
-        &quot;##RUN_CONFIGURATION##&quot;: &quot;CMake Application.os_elf&quot;,
-        &quot;cmake&quot;: &quot;CMakeBuildProfile:Debug&quot;
+        &quot;##RUN_CONFIGURATION##&quot;: &quot;CMake Application.DED OS Realese&quot;,
+        &quot;cmake&quot;: &quot;CMakeBuildProfile:Release&quot;
       },
       &quot;second&quot;: &quot;f2952a90-e2e5-42db-8f2e-c38fab591840&quot;
     },
     {
       &quot;first&quot;: {
-        &quot;##RUN_CONFIGURATION##&quot;: &quot;CMake Application.boot_obj&quot;,
+        &quot;##RUN_CONFIGURATION##&quot;: &quot;Embedded GDB Server.Debug in QEMU&quot;,
         &quot;cmake&quot;: &quot;CMakeBuildProfile:Debug&quot;
       },
       &quot;second&quot;: &quot;f2952a90-e2e5-42db-8f2e-c38fab591840&quot;
     }
   ],
-  &quot;modificationCount&quot;: 25
+  &quot;modificationCount&quot;: 50
 }</component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

@@ -21,5 +21,6 @@ typedef unsigned short u16;
 typedef short i16;
 typedef unsigned char byte;
 typedef unsigned char boolean;
+typedef unsigned long size_t;
 
 #endif //FYRFYROS_MACROSES_H
