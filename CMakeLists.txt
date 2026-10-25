@@ -2,11 +2,13 @@ cmake_minimum_required(VERSION 3.10)
 project(MbrBootloader NONE)
 
 enable_language(C)
+
 find_program(NASM_EXEC nasm REQUIRED)
 
 # --- 1. Конфигурация компилятора C для 32-bit Bare-Metal ---
-set(CMAKE_C_FLAGS "-m32 -ffreestanding -fno-pie -mno-sse -mno-sse2 -mno-sse3 -mno-ssse3 -mno-sse4.1 -mno-sse4.2 -mfpmath=387")
-set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_C_FLAGS "-std=c99 -m32 -ffreestanding -fno-stack-protector -fno-pie -mno-sse -mno-sse2 -mno-sse3 -mno-ssse3 -mno-sse4.1 -mno-sse4.2 -mfpmath=387")
+set(CMAKE_C_FLAGS_DEBUG "-O0 -g")
+set(CMAKE_C_FLAGS_RELEASE  "-O2")
 
 # --- 2. Компиляция MBR загрузчика в объектный файл elf32 ---
 set(BOOTLOADER_OBJ ${CMAKE_CURRENT_BINARY_DIR}/AsemblerObjects/boot.o)
@@ -51,8 +53,23 @@ endforeach()
 # --- 4. Единая линковка (ld boot.o kernel.o ... -> os.elf) ---
 add_executable(os_elf
         kernel.c
-        source/stack_chk_fail.c
+        source/drivers/driver_vga.c
+        source/kernel/kernel_stack_chk_fail.c
+        source/kernel/kernel_window.c
+        source/kernel/kernel_implementation_interrupts.c
+        source/utilities/utility_assert.c
+        source/utilities/utility_logger.c
+        source/utilities/utility_bits_operation.cpp
+        source/utilities/utility_allocator.c
+        source/utilities/utility_printf.c
+        source/utilities/utility_memory_operation.c
+        source/utilities/utility_window_printf.c
+
         ${KERNEL_ASM_OBJS}
+)
+
+target_compile_definitions(os_elf PRIVATE
+        $<$<CONFIG:Debug>:DEBUG_MODE>
 )
 
 add_dependencies(os_elf compile_boot)
@@ -61,7 +78,8 @@ add_dependencies(os_elf compile_boot)
 target_link_options(os_elf PRIVATE
         "-std=c99"
         "-m32"
-        "-O2"
+        $<$<CONFIG:Debug>:-O0;-g>
+        $<$<CONFIG:Release>:-O2>
         "-ffreestanding"
         "-no-pie"
         "-fno-pie"
