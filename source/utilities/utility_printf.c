@@ -46,8 +46,8 @@ void print_fyr_v(char* str, va_list list) {
 }
 
 void print_int(i32 number) {
-    if (number == -number) {
-        print_str("-2147483648\0");
+    if (number == -2147483647 - 1) {
+        print_str("-2147483648");
         return;
     }
     if (number < 0) {

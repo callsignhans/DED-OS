@@ -10,16 +10,6 @@
 
 extern void assembler_while();
 
-void assert_enable(assert *error_assert) {
-    print_fyr("I FIND ASSERT, COMRADE \r\n");
-    print_fyr("Line: %d\r\n", error_assert->line);
-    print_fyr("Function: %s\r\n", error_assert->name_function);
-    print_fyr("File: %s\r\n", error_assert->name_file);
-    print_fyr("Condition assert: %s\r\n", error_assert->condition);
-    print_fyr("Description: ");
-    print_fyr_v(error_assert->massage, error_assert->arguments);
-    assembler_while();
-}
 
 void kernel_panic(const char* str, ...) {
     cli_api();
@@ -33,4 +23,5 @@ void kernel_panic_v(const char* str, va_list args) {
     vga_clear_screen();
     print_fyr("Guilty, but the task was not completed...\r\nKERNEL PANIC\r\n");
     print_fyr_v(str, args);
+    endless_loop();
 }

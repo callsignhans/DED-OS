@@ -1,16 +1,32 @@
 #include "driver_vga.h"
+#include "utility_asm_fuctions.h"
 #include "utility_assert.h"
 #include "utility_printf.h"
 
-extern void assembler_while();
-extern byte _kernel_start[];
-extern byte _kernel_end[];
+
 void kernel_entry() {
     vga_init();
-    int y  = 1;
-    const char* test = "test";
-    size_t kernel_size_bytes = (size_t)(_kernel_end - _kernel_start);
-    print_int(kernel_size_bytes / 512);
-//    ASSERT(0, "not implemented %d", 12);
-    assembler_while();
+    kernel_start_allocator();
+//    kernel_print_allocator_info();
+
+/*
+ *    for (int i = 0; i < 25 ; i++) {
+        for (int j = 0; j < 1000000 ; j++) {
+            int y = 1;
+        }
+        print_hex(i);
+        print_str("\r\n");
+    }
+    */
+    int i = 0;
+    boolean check = 0;
+    u32* test[7];
+    while (1) {
+        test[i] = kernel_malloc_aligned(128, 16);
+        print_fyr("Result malloc: %x \r\n", test[i]);
+        if (test[i] == NULL) {
+            break;
+        }
+    }
+    endless_loop();
 }

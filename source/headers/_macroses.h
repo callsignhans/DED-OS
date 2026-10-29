@@ -23,4 +23,7 @@ typedef unsigned char byte;
 typedef unsigned char boolean;
 typedef unsigned long size_t;
 
+extern byte _kernel_start[];
+extern byte _kernel_end[];
+
 #endif //FYRFYROS_MACROSES_H

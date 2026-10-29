@@ -20,13 +20,16 @@ typedef struct utility_assert {
 
     extern void assert_interrupt(assert* text);
 
-    assert* create_assert(int line, const char* function,const char* file, const char* condition,
+    assert* assert_create(int line, const char* function,const char* file, const char* condition,
         const char* massage, ...);
+    void assert_print(assert* assert);
+    void assert_catch(assert* assert);
+
 
 #ifdef DEBUG_MODE
     #define ASSERT(condition, ...)                                                                          \
         if (!(condition)) {                                                                                 \
-            assert* result = create_assert(__LINE__, __FUNCTION__, __FILE_NAME__, #condition, __VA_ARGS__); \
+            assert* result = assert_create(__LINE__, __FUNCTION__, __FILE_NAME__, #condition, __VA_ARGS__); \
             assert_interrupt(result);                                                          \
         }
 #else
@@ -37,7 +40,7 @@ typedef struct utility_assert {
 #ifdef DEBUG_MODE
     #define ASSERT_NOT_COND(...)                                                                            \
     {                                                                                                       \
-        assert* result = create_assert(__LINE__, __FUNCTION__, __FILE_NAME__, "assert hasn't condition",    \
+        assert* result = assert_create(__LINE__, __FUNCTION__, __FILE_NAME__, "assert hasn't condition",    \
             __VA_ARGS__);                                                                 \
         assert_interrupt(result);                                                                           \
     }

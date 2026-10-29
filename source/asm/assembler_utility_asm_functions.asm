@@ -1,5 +1,6 @@
 global cli_api
 global sti_api
+global endless_loop
 
 cli_api:
     cli
@@ -7,4 +8,9 @@ cli_api:
 
 sti_api:
     sti
+    ret
+
+endless_loop:
+    .start:
+        jmp .start
     ret

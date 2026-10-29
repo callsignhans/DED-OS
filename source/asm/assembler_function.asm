@@ -1,15 +1,10 @@
-extern assert_enable
+extern assert_catch
 
 global assert_interrupt
-global assembler_while
-
-assembler_while:
-    .start:
-        jmp .start
 
 assert_interrupt:
     mov eax, [esp + 4]
     push eax
-    call assert_enable
+    call assert_catch
     pop eax
     ret
