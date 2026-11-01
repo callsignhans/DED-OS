@@ -3,7 +3,7 @@
 //
 
 #include "../headers/utility_window_printf.h"
-#include "../headers/utility_va_list.h"
+#include <stdarg.h>
 #include "../headers/kernel_window.h"
 
 void window_print_str(window* wind, char *str) {

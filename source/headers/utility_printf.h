@@ -7,7 +7,7 @@
 
 #include "_flags.h"
 #include "_macroses.h"
-#include "utility_va_list.h"
+#include <stdarg.h>
 
 void print_fyr(char* str, ...);
 void print_int(i32 number);

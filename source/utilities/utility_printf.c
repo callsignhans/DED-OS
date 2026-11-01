@@ -2,7 +2,7 @@
 // Created by modnick on 28.10.2024 and Anqeliccom on 30.12.2024, 24.11.2024
 //
 #include "../headers/utility_printf.h"
-#include "../headers/utility_va_list.h"
+#include <stdarg.h>
 #include "../headers/driver_vga.h"
 
 void print_fyr(char* str, ...) {
@@ -117,6 +117,7 @@ void print_unsigned_hex(i32 number) {
         vga_print_char_carriage(buffer[j], white_f, black_b);
     }
 }
+
 
 void print_str(char *str) {
     for (i32 i = 0; str[i] != 0; ++i) {

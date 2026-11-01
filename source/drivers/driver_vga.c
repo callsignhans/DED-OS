@@ -121,7 +121,7 @@ void vga_scroll_line(byte flag_down) {
     i16 step = (flag_down ? SIZE_X_DISPLAY : -SIZE_X_DISPLAY);
     u16 start_coord = (flag_down ? 0 : SIZE_X_DISPLAY * (SIZE_Y_DISPLAY - 1));
     u16 end_coord = (flag_down ? SIZE_X_DISPLAY * (SIZE_Y_DISPLAY - 1) : 0);
-
+    //memcopy replace
     for (i32 j = 0; j < SIZE_X_DISPLAY; ++j) {
         u16* input_address = (u16*)(START_DISPLAY_ADDRESS + 2 * (start_coord + j));
         u16* output_address = input_address + step;

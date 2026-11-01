@@ -36,18 +36,14 @@
     <list default="true" id="a6d0d52f-3d53-48a3-942e-8be7afb9e710" name="Changes" comment="last commit for one task">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kernel.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/asm/assembler_function.asm" beforeDir="false" afterPath="$PROJECT_DIR$/source/asm/assembler_function.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/asm/assembler_utility_asm_functions.asm" beforeDir="false" afterPath="$PROJECT_DIR$/source/asm/assembler_utility_asm_functions.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/headers/_macroses.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/_macroses.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/drivers/driver_vga.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/drivers/driver_vga.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/headers/utility_allocator.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/utility_allocator.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/headers/utility_asm_fuctions.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/utility_asm_fuctions.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/headers/utility_assert.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/utility_assert.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/headers/utility_memory_operation.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/utility_memory_operation.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/kernel/kernel_implementation_interrupts.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/kernel/kernel_implementation_interrupts.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/utilities/utility_allocator.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities/utility_allocator.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/headers/utility_printf.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/utility_printf.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/headers/utility_va_list.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/source/utilities/utility_assert.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities/utility_assert.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/utilities/utility_memory_operation.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities/utility_memory_operation.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/utilities/utility_printf.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities/utility_printf.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/utilities/utility_window_printf.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities/utility_window_printf.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +133,7 @@
   "keyToString": {
     "CMake Application.DED OS Debug Auto.executor": "Debug",
     "CMake Application.DED OS Debug.executor": "Debug",
-    "CMake Application.DED OS Realese.executor": "Debug",
+    "CMake Application.DED OS Realese.executor": "Run",
     "CMake Application.os_elf.executor": "Debug",
     "CidrDebugProfileConversion": "true",
     "Embedded GDB Server.DED OS Debug in QEMU.executor": "Debug",
@@ -161,7 +157,7 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "copilot.chat.legacySessionMetadata.migrated": "true",
     "git-widget-placeholder": "go-to-c",
-    "last_opened_file_path": "/home/adminguns/Documents/ProgramProjects/CLionProjects/CProjectFirstSemestr/cpl-homework-ar-03-Nick-Dvesty",
+    "last_opened_file_path": "/home/adminguns/Downloads/continue-intellij-extension-1.0.67.zip",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.jshint": "true",
     "node.js.detected.package.tslint": "true",
@@ -171,7 +167,7 @@
     "nodejs_package_manager_path": "npm",
     "org.rust.first.attach.projects": "true",
     "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
-    "settings.editor.selected.configurable": "com.maddyhome.idea.vim.ui.VimEmulationConfigurable",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

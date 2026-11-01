@@ -19,7 +19,7 @@ assert* assert_create(int line, const char* function, const char* file, const ch
     result->arguments = arguments;
     return result;
 }
-
+//replace functional to kernel panic
 void assert_catch(assert* assert) {
     cli_api();
     assert_print(assert);

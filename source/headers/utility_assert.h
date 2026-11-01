@@ -7,7 +7,7 @@
 
 
 #include "utility_allocator.h"
-#include "utility_va_list.h"
+#include <stdarg.h>
 
 typedef struct utility_assert {
         int line;
@@ -30,22 +30,10 @@ typedef struct utility_assert {
     #define ASSERT(condition, ...)                                                                          \
         if (!(condition)) {                                                                                 \
             assert* result = assert_create(__LINE__, __FUNCTION__, __FILE_NAME__, #condition, __VA_ARGS__); \
-            assert_interrupt(result);                                                          \
+            assert_catch(result);                                                          \
         }
 #else
     #define ASSERT(condition, ...)
-#endif
-
-
-#ifdef DEBUG_MODE
-    #define ASSERT_NOT_COND(...)                                                                            \
-    {                                                                                                       \
-        assert* result = assert_create(__LINE__, __FUNCTION__, __FILE_NAME__, "assert hasn't condition",    \
-            __VA_ARGS__);                                                                 \
-        assert_interrupt(result);                                                                           \
-    }
-#else
-    #define ASSERT_NOT_COND(...)
 #endif
 
 #endif //MBRBOOTLOADER_ASSERT_H

@@ -11,7 +11,7 @@
 #define KERNEL_SIZE_ADDRESS 8
 #define KERNEL_COUNT_ARENAS 9
 
-#define KERNEL_BLOCK_SIZE (2 * (1 << 10)) // 8KB
+#define KERNEL_BLOCK_SIZE (2 * (1 << 10)) // 2KB
 
 #define KERNEL_START_ALLOCATE (i32)(_kernel_end + KERNEL_BLOCK_SIZE +- 1) / KERNEL_BLOCK_SIZE * KERNEL_BLOCK_SIZE
 
@@ -34,6 +34,7 @@ void* kernel_malloc(size_t size);
 void* kernel_calloc(size_t num, size_t size);
 void* kernel_realloc(void* ptr, size_t new_size);
 void kernel_free(void* ptr);
+
 void* kernel_malloc_aligned(size_t size, size_t alignment);
 void* kernel_calloc_aligned(size_t num, size_t size, size_t alignment);
 
