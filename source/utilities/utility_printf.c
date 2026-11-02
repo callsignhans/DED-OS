@@ -1,9 +1,12 @@
 //
 // Created by modnick on 28.10.2024 and Anqeliccom on 30.12.2024, 24.11.2024
 //
-#include "../headers/utility_printf.h"
+
 #include <stdarg.h>
-#include "../headers/driver_vga.h"
+
+#include "driver_vga.h"
+#include "utility_printf.h"
+#include "utility_assert.h"
 
 void print_fyr(char* str, ...) {
     va_list list;
@@ -34,6 +37,10 @@ void print_fyr_v(char* str, va_list list) {
                 case '%': {
                     vga_print_char_carriage('%', white_f, black_b);
                     break;
+                }
+                case 'a': {
+                    assert* asrt = va_arg(list, assert*);
+                    assert_print(asrt);
                 }
                 default: {
                     break;
@@ -120,8 +127,12 @@ void print_unsigned_hex(i32 number) {
 
 
 void print_str(char *str) {
+    print_str_color(str, white_f, black_b);
+}
+
+void print_str_color(char *str, color_front cf, color_back cb) {
     for (i32 i = 0; str[i] != 0; ++i) {
-        vga_print_char_carriage(str[i], white_f, black_b);
+        vga_print_char_carriage(str[i], cf, cb);
     }
 }
 

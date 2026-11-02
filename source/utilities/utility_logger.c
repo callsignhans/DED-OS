@@ -10,9 +10,7 @@ void log_massage(char* comment_str, u32 hex, byte clear_mode){
     if (clear_mode) {
         vga_clear_screen();
     }
-    for (i32 i = 0; comment_str[i] != 0; ++i) {
-        vga_print_char_carriage(comment_str[i], light_blue_f, black_b);
-    }
+    print_str_color(comment_str, light_blue_f, black_b);
     if (hex != -1) {
         print_unsigned_hex(hex);
     }

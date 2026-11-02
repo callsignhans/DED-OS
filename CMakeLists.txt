@@ -55,15 +55,13 @@ add_executable(os_elf
         kernel.c
         source/drivers/driver_vga.c
         source/kernel/kernel_stack_chk_fail.c
-        source/kernel/kernel_window.c
-        source/kernel/kernel_implementation_interrupts.c
+        source/kernel/kernel_panic.c
         source/utilities/utility_assert.c
         source/utilities/utility_logger.c
         source/utilities/utility_bits_operation.cpp
-        source/utilities/utility_allocator.c
         source/utilities/utility_printf.c
         source/utilities/utility_memory_operation.c
-        source/utilities/utility_window_printf.c
+        source/utilities/utility_endless_allocator.c
 
         ${KERNEL_ASM_OBJS}
 )

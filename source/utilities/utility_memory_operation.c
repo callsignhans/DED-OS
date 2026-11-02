@@ -2,8 +2,9 @@
 // Created by adminguns on 24.10.2026.
 //
 
-#include "../headers/utility_memory_operation.h"
+#include <stddef.h>
 
+#include "../headers/utility_memory_operation.h"
 #include "utility_assert.h"
 
 void memory_move(void* dst, const void* src, size_t size) {

@@ -4,7 +4,8 @@
 
 #ifndef MBRBOOTLOADER_MEMORY_OPERATION_H
 #define MBRBOOTLOADER_MEMORY_OPERATION_H
-#include "_macroses.h"
+
+#include <stddef.h>
 
 void memory_move(void* dst, const void* src, size_t size);
 void memory_fill_zero(void* dst, size_t size);

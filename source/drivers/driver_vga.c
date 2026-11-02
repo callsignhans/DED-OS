@@ -4,7 +4,6 @@
 //
 
 #include "../headers/driver_vga.h"
-#include "../headers/utility_allocator.h"
 
 carriage carriage_kernel;
 
