@@ -34,28 +34,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6d0d52f-3d53-48a3-942e-8be7afb9e710" name="Changes" comment="last commit for one task">
-      <change afterPath="$PROJECT_DIR$/source/headers/utility_endless_allocator.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/utilities/utility_endless_allocator.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/asm/assembler_function.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/drivers/driver_vga.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/drivers/driver_vga.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/headers/_flags.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/headers/_macroses.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/_macroses.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/headers/driver_vga.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/driver_vga.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/headers/kernel_ipmlementation_interrupts.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/kernel_panic.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/headers/utility_allocator.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/headers/utility_assert.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/utility_assert.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/headers/utility_logger.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/utility_logger.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/headers/utility_memory_operation.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/utility_memory_operation.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/headers/utility_printf.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/utility_printf.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/kernel/kernel_implementation_interrupts.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/kernel/kernel_panic.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/utilities/utility_allocator.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/utilities/utility_assert.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities/utility_assert.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/utilities/utility_logger.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities/utility_logger.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/utilities/utility_memory_operation.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities/utility_memory_operation.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/utilities/utility_printf.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities/utility_printf.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,6 +98,7 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="Hnus2s8R" />
@@ -134,6 +114,9 @@
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3J7Xf6ynzE0jwhwheqMvHjD3Xz0" />
+  <component name="ProjectSessionTemplates">
+    <option name="version" value="1" />
+  </component>
   <component name="ProjectStatusUIService">{
   &quot;uiKindId&quot;: &quot;Widget&quot;
 }</component>
@@ -185,15 +168,13 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/asm" />
+      <recent name="$PROJECT_DIR$/source/kernel" />
+      <recent name="$PROJECT_DIR$/source/headers" />
       <recent name="$PROJECT_DIR$/source" />
     </key>
   </component>
   <component name="RunManager" selected="Embedded GDB Server.DED OS Debug in QEMU">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="DED OS Realese" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-cpu pentium2 -m 1g -drive format=raw,file=boot.img,if=floppy -monitor stdio -device VGA" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentBuildDir$/Binary" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="build_boot_image" CONFIG_NAME="Debug" RUN_PATH="/bin/qemu-system-i386">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -303,6 +284,9 @@
   ],
   &quot;modificationCount&quot;: 64
 }</component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a6d0d52f-3d53-48a3-942e-8be7afb9e710" name="Changes" comment="" />
