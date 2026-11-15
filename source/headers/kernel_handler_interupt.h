@@ -6,7 +6,6 @@
 #define FYRFYROS_HANDLER_INTERUPT_H
 
 #include "utility_printf.h"
-#include ""
 
 #pragma pack(push, 1)
 typedef struct context {
@@ -32,28 +31,17 @@ typedef struct context {
     u16 cs;
     u16 padding_5;
     u32 eflags;
-    // u32 padding_6;
-    // u16 ss;
 } context;
 #pragma pack(pop)
-
-
-
-void eoi(enum intel8259_type cont);
 
 void interrupt_handler(context* ctx);
 
 void trap_handler(context* ctx);
-void window_trap_handler(window* wind, context* ctx);
+
+void fault_handler(context* ctx);
+
+void abort_handler(context* ctx);
 
 void print_context(context* ctx);
-void window_print_context(window* wind, context* ctx);
-
-void panic_handler(context*);
-
-void assert_print(context* ctx);
-
-static void timer_interrupt(context* ctx);
-static void window_timer_interrupt(window* wind, context* ctx);
 
 #endif //FYRFYROS_HANDLER_INTERUPT_H

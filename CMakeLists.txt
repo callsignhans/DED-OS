@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(MbrBootloader NONE)
 
 enable_language(C)
+enable_language(ASM_NASM)
 
 find_program(NASM_EXEC nasm REQUIRED)
 
@@ -41,7 +42,7 @@ foreach(ASM_FILE ${KERNEL_ASM_SRCS})
     add_custom_command(
             OUTPUT ${OBJ_FILE}
             COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/AsemblerObjects
-            COMMAND ${NASM_EXEC} -f elf32 -I"${CMAKE_CURRENT_SOURCE_DIR}/source/headers/" ${ASM_FILE} -o ${OBJ_FILE}
+            COMMAND ${NASM_EXEC} -g -f elf32 -I"${CMAKE_CURRENT_SOURCE_DIR}/source/headers/" ${ASM_FILE} -o ${OBJ_FILE}
             DEPENDS ${ASM_FILE}
             COMMENT "Компиляция ассемблера ядра: ${ASM_NAME}.asm -> elf32"
     )
@@ -56,9 +57,10 @@ add_executable(os_elf
         source/drivers/driver_vga.c
         source/kernel/kernel_stack_chk_fail.c
         source/kernel/kernel_panic.c
+        source/kernel/kernel_handler_interupt.c
+        source/kernel/kernel_trampolines.c
         source/utilities/utility_assert.c
         source/utilities/utility_logger.c
-        source/utilities/utility_bits_operation.cpp
         source/utilities/utility_printf.c
         source/utilities/utility_memory_operation.c
         source/utilities/utility_endless_allocator.c

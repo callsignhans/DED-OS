@@ -4,7 +4,7 @@
 
 #include <stddef.h>
 
-#include "../headers/utility_memory_operation.h"
+#include "utility_memory_operation.h"
 #include "utility_assert.h"
 
 void memory_move(void* dst, const void* src, size_t size) {

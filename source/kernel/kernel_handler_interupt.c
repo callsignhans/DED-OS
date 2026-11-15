@@ -2,68 +2,37 @@
 // Created by modnick on 23.11.2024.
 //
 
-#include "headers/handler_interupt.h"
+#include "kernel_handler_interupt.h"
 
-#include "intel8042.h"
-#include "headers/intel8259A.h"
-#include "headers/assert.h"
-#include "headers/loger.h"
-#include "va_list.h"
+#include "kernel_panic.h"
+#include "utility_asm_fuctions.h"
+#include "utility_logger.h"
 
-u32 GLOBAL_COUNTER_TIMER = 0x0;
-
-void eoi(enum intel8259_type cont) {
-    outb(cont == master ? 0x20 : 0xA0, 0x20);
-}
 
 void interrupt_handler(context* ctx) {
     switch (ctx->vector) {
-        case 0x20:
-            //timer_interrupt(ctx);
-            eoi(master);
+        case 0x8:
+            abort_handler(ctx);
             break;
-
-        case 0x21:
-            ps2_keyboard_interrupt();
-            eoi(master);
-            break;
-
-        case 0x2C:
-            u32 ch2 = inb(0x60);
-            vga_clear_screen();
-            print_hex(ch2);
-            eoi(slave);
-            eoi(master);
-            break;
-
-        case 0x76:
-            assert_print(ctx);
-            break;
-
         default:
-            if (ctx->vector < START_VECTOR_MASTER) {
-                trap_handler(ctx);
-            } else if (ctx->vector < 0x30) {
-                if (ctx->vector >= START_VECTOR_SLAVE) {
-                    eoi(slave);
-                }
-                eoi(master);
-            }
-            panic_handler(ctx);
+            trap_handler(ctx);
             break;
     }
 }
 
 void trap_handler(context* ctx) {
     print_context(ctx);
-//    sti();
-    for (;;);
+    endless_loop();
 }
 
-void window_trap_handler(window* wind, context* ctx) {
-    window_print_context(wind, ctx);
-    sti();
-    for (;;);
+void fault_handler(context* ctx) {
+    print_context(ctx);
+    endless_loop();
+}
+
+void abort_handler(context* ctx) {
+    print_context(ctx);
+    endless_loop();
 }
 
 void print_context(context* ctx) {
@@ -87,116 +56,3 @@ void print_context(context* ctx) {
     print_fyr("  error code = %x\r\n", ctx->error_code);
 }
 
-void window_print_context(window* wind, context* ctx) {
-    window_vga_clear_screen(wind);
-    window_print_fyr(wind, "\r\nKernel panic: unhandled interrupt %x, interrupted process context:\r\n", ctx->vector);
-    window_print_fyr(wind, "  EAX = %x ", ctx->eax);
-    window_print_fyr(wind, "ECX = %x ", ctx->ecx);
-    window_print_fyr(wind, "EDX = %x ", ctx->edx);
-    window_print_fyr(wind, "EBX = %x\r\n", ctx->ebx);
-    window_print_fyr(wind, "  ESP = %x ", ctx->esp);
-    window_print_fyr(wind, "EBP = %x ", ctx->ebp);
-    window_print_fyr(wind, "ESI = %x ", ctx->esi);
-    window_print_fyr(wind, "EDI = %x\r\n", ctx->edi);
-    window_print_fyr(wind, "  DS  = %x ", ctx->ds);
-    window_print_fyr(wind, "ES  = %x ", ctx->es);
-    window_print_fyr(wind, "FS  = %x ", ctx->fs);
-    window_print_fyr(wind, "GS  = %x\r\n", ctx->gs);
-    window_print_fyr(wind, "  CS  = %x ", ctx->cs);
-    window_print_fyr(wind, "EIP = %x ", ctx->eip);
-    window_print_fyr(wind, "EFLAGS = %x\r\n", ctx->eflags);
-    window_print_fyr(wind, "  error code = %x\r\n", ctx->error_code);
-}
-
-void panic_handler(context* ctx) {
-    print_context(ctx);
-    for (;;);
-}
-
-void assert_print(context *ctx) {
-    assert* error_assert = (assert*)(ctx->eax);
-    vga_clear_screen();
-    print_fyr("I FIND ASSERT, COMRAT \r\n");
-    print_fyr("Line: %d\r\n", error_assert->line);
-    print_fyr("Function: %s\r\n", error_assert->name_function);
-    print_fyr("File: %s\r\n", error_assert->name_file);
-    print_fyr("Condition assert: %s\r\n", error_assert->condition);
-    print_fyr("Description: ");
-    va_list list;
-    list.now_address = (void*)ctx->edx;
-    for (i32 i = 0; error_assert->massage[i] != 0; ++i) {
-        if (error_assert->massage[i] == '%') {
-            i++;
-            switch (error_assert->massage[i]) {
-                case 'd': {
-                    print_int(va_arg(list, i32));
-                    break;
-                }
-                case 'x': {
-                    print_unsigned_hex(va_arg(list, i32));
-                    break;
-                }
-                case 's': {
-                    print_str(va_arg(list, char*));
-                    break;
-                }
-                case '%': {
-                    vga_print_char_carriage('%', white_f, black_b);
-                    break;
-                }
-                default:
-            }
-        } else {
-            vga_print_char_carriage(error_assert->massage[i], white_f, black_b);
-        }
-    }
-    for (;;);
-}
-
-static void timer_interrupt(context* ctx) {
-//    GLOBAL_COUNTER_TIMER++;
-//    return;
-    u32 pos_carr = carriage_get_position();
-
-    u16 len = 1;
-    for (u32 i = GLOBAL_COUNTER_TIMER / 10; i > 0; i /= 10) len++;
-
-    carriage_set_position(0, SIZE_Y_DISPLAY - 3);
-    print_fyr("+");
-    for (u16 i = 0; i < len + 2; i++) print_fyr("-");
-    print_fyr("+");
-
-    carriage_set_position(0, SIZE_Y_DISPLAY - 2);
-    print_fyr("| %d |", GLOBAL_COUNTER_TIMER++);
-
-    carriage_set_position(0, SIZE_Y_DISPLAY - 1);
-    print_fyr("+");
-    for (u16 i = 0; i < len + 2; i++) print_fyr("-");
-    print_fyr("+");
-
-    carriage_set_position(pos_carr >> 16, (u16)pos_carr);
-    carriage_set_position(0, 0);
-}
-
-static void window_timer_interrupt(window* wind, context* ctx) {
-    u32 pos_carr = window_carriage_get_position(wind);
-
-    u16 len = 1;
-    for (u32 i = GLOBAL_COUNTER_TIMER / 10; i > 0; i /= 10) len++;
-
-    window_carriage_set_position(wind, 0, wind->size_y - 3);
-    window_print_fyr(wind, "+");
-    for (u16 i = 0; i < len + 2; i++) window_print_fyr(wind, "-");
-    window_print_fyr(wind, "+");
-
-    window_carriage_set_position(wind, 0, wind->size_y - 2);
-    window_print_fyr(wind, "| %d |", GLOBAL_COUNTER_TIMER++);
-
-    window_carriage_set_position(wind, 0, wind->size_y - 1);
-    window_print_fyr(wind, "+");
-    for (u16 i = 0; i < len + 2; i++) window_print_fyr(wind, "-");
-    window_print_fyr(wind, "+");
-
-    window_carriage_set_position(wind, pos_carr >> 16, (u16)pos_carr);
-    window_carriage_set_position(wind, 0, 0);
-}

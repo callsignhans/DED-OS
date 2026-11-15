@@ -2,8 +2,8 @@
 // Created by modnick on 18.12.2024.
 //
 
-#include "../headers/utility_logger.h"
-#include "../headers/utility_printf.h"
+#include "utility_logger.h"
+#include "utility_printf.h"
 
 void log_massage(char* comment_str, u32 hex, byte clear_mode){
 #ifdef DEBUG_MODE

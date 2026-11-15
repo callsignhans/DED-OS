@@ -3,9 +3,9 @@
 // Update by RostyanYandexLyceumCheeeeck on 01.11.2024.
 //
 
-#include "../headers/driver_vga.h"
+#include "driver_vga.h"
 
-carriage carriage_kernel;
+static carriage carriage_kernel;
 
 void carriage_inc() {
     carriage_kernel.x++;
