@@ -26,7 +26,7 @@ void memory_move(void* dst, const void* src, size_t size) {
 
 void memory_fill_zero(void* dst, size_t size) {
     ASSERT(size > 0, "Size must be greater than 0");
-    ASSERT(dst == NULL, "Destination pointer must not be nullptr");
+    ASSERT(dst != NULL, "Destination pointer must not be nullptr");
     for (size_t i = 0; i < size; i++) {
         ((char*)dst)[i] = 0;
     }

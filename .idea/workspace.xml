@@ -34,18 +34,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6d0d52f-3d53-48a3-942e-8be7afb9e710" name="Changes" comment="last commit for one task">
+      <change afterPath="$PROJECT_DIR$/source/asm/assembler_generate_tramplin.asm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kernel.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/asm/assembler_tramplins_asm.asm" beforeDir="false" afterPath="$PROJECT_DIR$/source/asm/assembler_kernel_trampolines.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/asm/assembler_utility_asm_functions.asm" beforeDir="false" afterPath="$PROJECT_DIR$/source/asm/assembler_utility_asm_functions.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/drivers/driver_vga.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/drivers/driver_vga.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/headers/kernel_handler_interupt.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/kernel_handler_interupt.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/headers/utility_asm_fuctions.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/utility_asm_fuctions.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/headers/utility_bits_operation.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/kernel/kernel_handler_interupt.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/kernel/kernel_handler_interupt.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/utilities/utility_bits_operation.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/utilities/utility_logger.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities/utility_logger.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/asm/assembler_kernel_trampolines.asm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/headers/kernel_trampolines.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/headers/kernel_trampolines.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/kernel/kernel_trampolines.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/kernel/kernel_trampolines.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/utilities/utility_memory_operation.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities/utility_memory_operation.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +60,7 @@
       <list>
         <option value="237" />
         <option value="102" />
-        <option value="1194" />
+        <option value="1217" />
       </list>
     </option>
     <option name="columnOrder">
@@ -173,7 +167,7 @@
     "nodejs_package_manager_path": "npm",
     "org.rust.first.attach.projects": "true",
     "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
-    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -211,6 +205,16 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="boot_obj" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="boot_obj" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="compile_boot" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="compile_boot" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="os_elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MbrBootloader" TARGET_NAME="os_elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MbrBootloader" RUN_TARGET_NAME="os_elf">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -233,46 +237,50 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="CMake Application.boot_obj" />
+      <item itemvalue="CMake Application.compile_boot" />
+      <item itemvalue="CMake Application.os_elf" />
       <item itemvalue="CMake Application.DED OS Realese" />
+      <item itemvalue="Embedded GDB Server.Debug in QEMU" />
       <item itemvalue="Embedded GDB Server.DED OS Debug in QEMU" />
     </list>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="/usr/bin" />
   </component>
-  <component name="SelectedDebugProfileService">{
-  &quot;profileIdByStamp&quot;: [
+  <component name="SelectedDebugProfileService"><![CDATA[{
+  "profileIdByStamp": [
     {
-      &quot;first&quot;: {
-        &quot;##RUN_CONFIGURATION##&quot;: &quot;CMake Application.DED OS Realese&quot;,
-        &quot;cmake&quot;: &quot;CMakeBuildProfile:Debug&quot;
+      "first": {
+        "##RUN_CONFIGURATION##": "CMake Application.DED OS Realese",
+        "cmake": "CMakeBuildProfile:Debug"
       },
-      &quot;second&quot;: &quot;f2952a90-e2e5-42db-8f2e-c38fab591840&quot;
+      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
     },
     {
-      &quot;first&quot;: {
-        &quot;##RUN_CONFIGURATION##&quot;: &quot;Embedded GDB Server.DED OS Debug in QEMU&quot;,
-        &quot;cmake&quot;: &quot;CMakeBuildProfile:Debug&quot;
+      "first": {
+        "##RUN_CONFIGURATION##": "Embedded GDB Server.DED OS Debug in QEMU",
+        "cmake": "CMakeBuildProfile:Debug"
       },
-      &quot;second&quot;: &quot;f2952a90-e2e5-42db-8f2e-c38fab591840&quot;
+      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
     },
     {
-      &quot;first&quot;: {
-        &quot;##RUN_CONFIGURATION##&quot;: &quot;CMake Application.DED OS Realese&quot;,
-        &quot;cmake&quot;: &quot;CMakeBuildProfile:Release&quot;
+      "first": {
+        "##RUN_CONFIGURATION##": "CMake Application.DED OS Realese",
+        "cmake": "CMakeBuildProfile:Release"
       },
-      &quot;second&quot;: &quot;f2952a90-e2e5-42db-8f2e-c38fab591840&quot;
+      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
     },
     {
-      &quot;first&quot;: {
-        &quot;##RUN_CONFIGURATION##&quot;: &quot;Embedded GDB Server.DED OS Debug in QEMU&quot;,
-        &quot;cmake&quot;: &quot;CMakeBuildProfile:Release&quot;
+      "first": {
+        "##RUN_CONFIGURATION##": "Embedded GDB Server.DED OS Debug in QEMU",
+        "cmake": "CMakeBuildProfile:Release"
       },
-      &quot;second&quot;: &quot;f2952a90-e2e5-42db-8f2e-c38fab591840&quot;
+      "second": "f2952a90-e2e5-42db-8f2e-c38fab591840"
     }
   ],
-  &quot;modificationCount&quot;: 64
-}</component>
+  "modificationCount": 68
+}]]></component>
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
   </component>
@@ -300,6 +308,9 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.asm" />
+  </component>
   <component name="VCPKGProject">
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
@@ -322,18 +333,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="last commit for one task" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/boot.asm</url>
-          <line>5</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="com.jetbrains.cidr.embedded.customgdbserver.type">
-        <watch expression="KERNEL_ALLOCATOR" language="C++" />
+        <watch expression="*new_trampoline @ 18" language="C++" />
       </configuration>
     </watches-manager>
   </component>

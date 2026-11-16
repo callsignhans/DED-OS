@@ -8,6 +8,15 @@
 #include "_macroses.h"
 
 #define COUNT_INTERRUPT 256
+#define SIZE_TRAMPOLINE_WITH_ERRORCODE ((size_t)trampoline_with_errorcode_end - (size_t)trampoline_with_errorcode_start)
+#define SIZE_TRAMPOLINE_WITHOUT_ERRORCODE ((size_t)trampoline_without_errorcode_end - (size_t)trampoline_without_errorcode_start)
+
+extern void trampoline_with_errorcode_start();
+extern void trampoline_with_errorcode_end();
+extern void trampoline_without_errorcode_start();
+extern void trampoline_without_errorcode_end();
+
+typedef void (*trampoline_fn_t)(void);
 
 enum gate_type {
     interrupt_gate = 0xE,
@@ -42,4 +51,5 @@ typedef struct table_gate_descriptor {
 static gate_descriptor *generate_idt();
 static gate_descriptor generate_gate_descriptor(void* tramplin_ptr, enum gate_type type, enum descriptor_privilege_level level);
 void create_lidt();
+trampoline_fn_t kernel_create_trampoline(byte number_trampoline, boolean with_dead_code);
 #endif //FYRFYROS_TRAMPLINS_H
