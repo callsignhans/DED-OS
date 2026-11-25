@@ -5,6 +5,7 @@
 #include <stdarg.h>
 
 #include "driver_vga.h"
+#include "_structs.h"
 #include "utility_printf.h"
 #include "utility_assert.h"
 
@@ -41,7 +42,11 @@ void print_fyr_v(char* str, va_list list) {
                 case 'a': {
                     assert* asrt = va_arg(list, assert*);
                     assert_print(asrt);
+                    break;
                 }
+                case 'c':
+                    context* ctx = va_arg(list, context*);
+                    print_context(ctx);
                 default: {
                     break;
                 }
@@ -136,3 +141,31 @@ void print_str_color(char *str, color_front cf, color_back cb) {
     }
 }
 
+void print_context(const context* ctx) {
+    print_fyr("\r\nKernel panic: unhandled interrupt %x, interrupted process context:\r\n", ctx->vector);
+    print_fyr("  EAX = %x ", ctx->eax);
+    print_fyr("ECX = %x ", ctx->ecx);
+    print_fyr("EDX = %x ", ctx->edx);
+    print_fyr("EBX = %x\r\n", ctx->ebx);
+    print_fyr("  ESP = %x ", ctx->esp);
+    print_fyr("EBP = %x ", ctx->ebp);
+    print_fyr("ESI = %x ", ctx->esi);
+    print_fyr("EDI = %x\r\n", ctx->edi);
+    print_fyr("  DS  = %x ", ctx->ds);
+    print_fyr("ES  = %x ", ctx->es);
+    print_fyr("FS  = %x ", ctx->fs);
+    print_fyr("GS  = %x\r\n", ctx->gs);
+    print_fyr("  CS  = %x ", ctx->cs);
+    print_fyr("EIP = %x ", ctx->eip);
+    print_fyr("EFLAGS = %x\r\n", ctx->eflags);
+    print_fyr("  error code = %x\r\n", ctx->error_code);
+}
+
+void assert_print(const assert *error_assert) {
+    print_fyr("Line: %d\r\n", error_assert->line);
+    print_fyr("Function: %s\r\n", error_assert->name_function);
+    print_fyr("File: %s\r\n", error_assert->name_file);
+    print_fyr("Condition assert: %s\r\n", error_assert->condition);
+    print_fyr("Description: ");
+    print_fyr_v(error_assert->massage, error_assert->arguments);
+}

@@ -15,20 +15,21 @@ extern void trampoline_with_errorcode_start();
 extern void trampoline_with_errorcode_end();
 extern void trampoline_without_errorcode_start();
 extern void trampoline_without_errorcode_end();
+extern byte* vector_number;
 
 typedef void (*trampoline_fn_t)(void);
 
-enum gate_type {
+typedef enum {
     interrupt_gate = 0xE,
     trap_gate = 0xF
-};
+} gate_type;
 
-enum descriptor_privilege_level {
+typedef enum {
     kernel = 0,
     device_driver_1 = 1,
     device_driver_2 = 2,
     application = 3
-};
+} descriptor_privilege_level;
 
 #pragma pack(push, 1)
 typedef struct gate_descriptor {
@@ -48,8 +49,9 @@ typedef struct table_gate_descriptor {
 } table_gate_descriptor;
 #pragma pack(pop)
 
-static gate_descriptor *generate_idt();
-static gate_descriptor generate_gate_descriptor(void* tramplin_ptr, enum gate_type type, enum descriptor_privilege_level level);
-void create_lidt();
+static gate_descriptor *generate_idt(gate_type* type_interrupt_gates);
+static gate_descriptor generate_gate_descriptor(void* trampoline_ptr, gate_type type, descriptor_privilege_level level);
+void create_lidt(gate_type* type_interrupt_gates);
 trampoline_fn_t kernel_create_trampoline(byte number_trampoline, boolean with_dead_code);
+
 #endif //FYRFYROS_TRAMPLINS_H

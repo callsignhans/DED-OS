@@ -7,20 +7,9 @@
 
 #include <stdarg.h>
 
-typedef struct utility_assert {
-        int line;
-        const char* name_function;
-        const char* name_file;
-        const char* condition;
-        const char* massage;
-        va_list arguments;
-    } assert;
-
-    extern void assert_interrupt(assert* text);
 
     void assert_catch(int line, const char* function,const char* file, const char* condition,
         const char* massage, ...);
-    void assert_print(assert* assert);
 
 #ifdef DEBUG_MODE
     #define ASSERT(condition, ...)                                                                          \

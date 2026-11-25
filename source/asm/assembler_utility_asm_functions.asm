@@ -4,6 +4,8 @@ global get_cs_api
 global endless_loop
 global lidt_api
 global call_int_104
+global outb_api
+global inb_api
 
 cli_api:
     cli
@@ -29,4 +31,16 @@ endless_loop:
 
 call_int_104:
     int 104
+    ret
+
+outb_api:
+    mov edx, [esp + 4]
+    mov eax, [esp + 8]
+    out dx, al
+    ret
+
+inb_api:
+    mov edx, [esp + 4]
+    mov eax, -1
+    in al, dx
     ret

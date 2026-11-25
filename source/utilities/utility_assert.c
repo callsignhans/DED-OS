@@ -20,11 +20,3 @@ void assert_catch(int line, const char* function, const char* file, const char* 
     kernel_panic("I FIND ASSERT, COMRADE \r\n%a", &result);
 }
 
-void assert_print(assert *error_assert) {
-    print_fyr("Line: %d\r\n", error_assert->line);
-    print_fyr("Function: %s\r\n", error_assert->name_function);
-    print_fyr("File: %s\r\n", error_assert->name_file);
-    print_fyr("Condition assert: %s\r\n", error_assert->condition);
-    print_fyr("Description: ");
-    print_fyr_v(error_assert->massage, error_assert->arguments);
-}

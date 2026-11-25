@@ -7,22 +7,33 @@
 #include "kernel_panic.h"
 #include "utility_asm_fuctions.h"
 #include "utility_logger.h"
+#include "utility_printf.h"
 
 
 void interrupt_handler(context* ctx) {
+
+    if ((ctx->vector >= START_VECTOR_MASTER && ctx->vector < END_VECTOR_MASTER) ||
+        (ctx->vector >= START_VECTOR_SLAVE && ctx->vector < END_VECTOR_SLAVE)) {
+        intel8259_start_interrupt(ctx->vector, ctx);
+        return;
+    }
     switch (ctx->vector) {
-        case 0x8:
-            abort_handler(ctx);
-            break;
         default:
             trap_handler(ctx);
             break;
     }
 }
 
+void timer(context* ctx) {
+    static int test = 0;
+    vga_clear_screen();
+    print_hex(test);
+    test++;
+    intel8259_eoi(master);
+}
+
 void trap_handler(context* ctx) {
-    print_context(ctx);
-    endless_loop();
+    kernel_panic("%c", ctx);
 }
 
 void fault_handler(context* ctx) {
@@ -35,24 +46,4 @@ void abort_handler(context* ctx) {
     endless_loop();
 }
 
-void print_context(context* ctx) {
-    vga_clear_screen();
-    print_fyr("\r\nKernel panic: unhandled interrupt %x, interrupted process context:\r\n", ctx->vector);
-    print_fyr("  EAX = %x ", ctx->eax);
-    print_fyr("ECX = %x ", ctx->ecx);
-    print_fyr("EDX = %x ", ctx->edx);
-    print_fyr("EBX = %x\r\n", ctx->ebx);
-    print_fyr("  ESP = %x ", ctx->esp);
-    print_fyr("EBP = %x ", ctx->ebp);
-    print_fyr("ESI = %x ", ctx->esi);
-    print_fyr("EDI = %x\r\n", ctx->edi);
-    print_fyr("  DS  = %x ", ctx->ds);
-    print_fyr("ES  = %x ", ctx->es);
-    print_fyr("FS  = %x ", ctx->fs);
-    print_fyr("GS  = %x\r\n", ctx->gs);
-    print_fyr("  CS  = %x ", ctx->cs);
-    print_fyr("EIP = %x ", ctx->eip);
-    print_fyr("EFLAGS = %x\r\n", ctx->eflags);
-    print_fyr("  error code = %x\r\n", ctx->error_code);
-}
 

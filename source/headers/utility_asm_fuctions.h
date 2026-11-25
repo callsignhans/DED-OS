@@ -13,5 +13,7 @@ extern void endless_loop();
 extern u16 get_cs_api();
 extern void lidt_api(table_gate_descriptor* table);
 extern void call_int_104();
+extern byte inb_api(u16 port);
+extern void outb_api(u16 port, byte data);
 
 #endif //MBRBOOTLOADER_UTILITY_ASM_FUCTIONS_H
